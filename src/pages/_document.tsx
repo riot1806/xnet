@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang='en'>
       <Head>
-        <title>XNet</title>
+        <title>X-net</title>
         <meta name='description' content='xnet' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
