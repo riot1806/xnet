@@ -21,7 +21,11 @@ const Nav: FC = () => {
           <div className={s.container}>
             <div className={s.top__nav__parent}>
               <div className={s.mobile__drawer}>
-                <HiMenu className={s.mobile__toggle} onClick={toggleDrawer} />
+                <HiMenu
+                  style={{ cursor: "pointer" }}
+                  className={s.mobile__toggle}
+                  onClick={toggleDrawer}
+                />
 
                 <Drawer
                   open={isOpen}
@@ -33,20 +37,16 @@ const Nav: FC = () => {
                   <div className={s.mobil_nav_parent}>
                     <Link href="/">
                       <Image
-                        className={s.logo}
-                        width={200}
-                        height={100}
-                        src="/x-net.png"
+                        className={s.logo_mobile}
+                        fill
+                        src="/x-logo.png"
                         alt="Logo"
                       />
                     </Link>
                     <div className={s.mobile_routes}>
                       <Link href={"/"}>Главная Страница</Link>
-                      <Link href={"/"}>Товары</Link>
-                      <Link href={"/"}>Контакты</Link>
-                      <a target="_blank" href="tel: +998 99 855-73-85">
-                        Отдел продаж: <br /> +998 99 855-73-85
-                      </a>
+                      <Link href={"/products"}>Товары</Link>
+                      <Link href={"/contacts"}>Контакты</Link>
                     </div>
                   </div>
                 </Drawer>
@@ -54,24 +54,20 @@ const Nav: FC = () => {
               <Link href="/">
                 <Image
                   className={s.logo}
-                  width={200}
-                  height={100}
-                  src="/x-net.png"
+                  fill
+                  src="/x-logo.png"
                   alt="Logo"
                 />
               </Link>
               <div className={s.nav__center}>
                 <Link href={"/"}>Главная Страница</Link>
-                <Link href={"/"}>Товары</Link>
-                <Link href={"/"}>Контакты</Link>
-                <a target="_blank" href="tel: +998 99 855-73-85">
-                  Отдел продаж: +998 99 855-73-85
-                </a>
+                <Link href={"/products"}>Товары</Link>
+                <Link href={"/contacts"}>Контакты</Link>
               </div>
-              <div className={s.nav__right}>
+              <Link href={"/cart"} className={s.nav__right}>
                 <HiShoppingCart className={s.shop__cart} />
                 <sub>0</sub>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
