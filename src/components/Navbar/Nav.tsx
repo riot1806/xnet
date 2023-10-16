@@ -46,23 +46,16 @@ const Nav: FC = () => {
                     <div className={s.mobile_routes}>
                       <Link href={"/"}>Главная Страница</Link>
                       <Link href={"/products"}>Товары</Link>
-                      <Link href={"/contacts"}>Контакты</Link>
                     </div>
                   </div>
                 </Drawer>
               </div>
               <Link href="/">
-                <Image
-                  className={s.logo}
-                  fill
-                  src="/x-logo.png"
-                  alt="Logo"
-                />
+                <Image className={s.logo} fill src="/x-logo.png" alt="Logo" />
               </Link>
               <div className={s.nav__center}>
                 <Link href={"/"}>Главная Страница</Link>
                 <Link href={"/products"}>Товары</Link>
-                <Link href={"/contacts"}>Контакты</Link>
               </div>
               <Link href={"/cart"} className={s.nav__right}>
                 <HiShoppingCart className={s.shop__cart} />

@@ -27,16 +27,12 @@ const Footer: FC = () => {
               <Link href={"/products"}>
                 <p>Товары</p>
               </Link>
-              <Link href={"/contacts"}>
-                {" "}
-                <p>Контакты</p>
-              </Link>
             </div>
             <div className={s.item}>
               <h2>Контакты</h2>
-              <a target="_blank" href="tel: +998998557385" className={s.twink}>
+              <a target="_blank" href="tel: +998971989889" className={s.twink}>
                 <BsFillTelephoneFill className={s.twink_phone} />
-                <p>+998 (97) 198-98-89 Xusan</p>
+                <p>+998 (97) 198-98-89 Хусан</p>
               </a>
               <div className={s.twink}>
                 <svg
@@ -58,16 +54,11 @@ const Footer: FC = () => {
           </div>
           <hr />
           <div className={s.footer_main_bottom}>
-            <p className={s.footer_main_bottom_title}>© 2012-2023 «X-net» - продажа сетевого оборудования</p>
+            <p className={s.footer_main_bottom_title}>
+              © 2012-2023 «X-net» - продажа сетевого оборудования
+            </p>
             <p>
-              Developed by{" "}
-              <a
-                style={{ color: "#0C96F3" }}
-                target="_blank"
-                href="https://it-academy.uz/"
-              >
-                IT Academy
-              </a>
+              Developed by <Link style={{ color: "#0C96F3" }} href="/">X-net</Link>
             </p>
           </div>
         </div>
