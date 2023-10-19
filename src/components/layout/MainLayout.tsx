@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from "react";
+import Filters from "../Filters/Filters";
 import Footer from "../Footer/Footer";
 import Nav from "../Navbar/Nav";
 import ReplainChat from "../Replain";
@@ -8,6 +9,7 @@ const MainLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Nav />
+      <Filters />
       <main>{children}</main>
       <Target />
       <Footer />

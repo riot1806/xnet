@@ -16,19 +16,19 @@ const Target: FC = () => {
             <p>Бонусы за <br /> покупку</p>
           </div>
           <div className={s.target_main_card}>
-            <Image fill src="/return.webp" alt="Benefits" />
+            <Image fill src="/return.png" alt="Benefits" />
             <p>Гарантированный <br /> возврат и обмен</p>
           </div>
           <div className={s.target_main_card}>
-            <Image fill src="/agreement.webp" alt="Benefits" />
+            <Image fill src="/checklist.png" alt="Benefits" />
             <p>Сертификаты на <br /> все товары</p>
           </div>
           <div className={s.target_main_card}>
-            <Image fill src="/checklist.webp" alt="Benefits" />
+            <Image fill src="/agreement.png" alt="Benefits" />
             <p>Сервисное <br /> обслуживание</p>
           </div>
           <div className={s.target_main_card}>
-            <Image fill src="/help.webp" alt="Benefits" />
+            <Image fill src="/help.png" alt="Benefits" />
             <p>Техническая <br /> поддержка <br /> 24/7</p>
           </div>
         </div>

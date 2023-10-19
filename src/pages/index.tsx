@@ -3,10 +3,8 @@ import s from "../styles/home.module.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-// import { banners } from "@/banners";
 import Image from "next/image";
 import AboutUs from "@/components/AboutUs/AboutUs";
-import CatalogsBanner from "@/components/CatalogsBanner/CatalogsBanner";
 import Filters from "@/components/Filters/Filters";
 import axios from "axios";
 import { API_KEY } from "../api/Api";
@@ -43,7 +41,6 @@ export default function Home() {
 
   return (
     <>
-      <Filters />
       <div className={s.home_header}>
         <div className={s.container}>
           <h1>Телекоммуникационное обородувание</h1>
@@ -57,7 +54,6 @@ export default function Home() {
         </div>
       </div>
       <Categories />
-      <CatalogsBanner />
       <AboutUs />
     </>
   );

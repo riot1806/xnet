@@ -7,12 +7,20 @@ import { HiShoppingCart } from "react-icons/hi";
 import { HiMenu } from "react-icons/hi";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
+import { useCart } from "react-use-cart";
+import { useRouter } from "next/router";
 
 const Nav: FC = () => {
+  const router = useRouter();
+  const { items } = useCart();
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [router]);
 
   return (
     <>
@@ -59,7 +67,7 @@ const Nav: FC = () => {
               </div>
               <Link href={"/cart"} className={s.nav__right}>
                 <HiShoppingCart className={s.shop__cart} />
-                <sub>0</sub>
+                <sub>{items.length}</sub>
               </Link>
             </div>
           </div>

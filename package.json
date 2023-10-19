@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.13",
     "@mui/styled-engine-sc": "^6.0.0-alpha.1",
+    "antd": "^5.10.1",
     "axios": "^1.5.1",
     "next": "13.5.4",
     "nextjs-progressbar": "^0.0.16",
@@ -20,7 +21,9 @@
     "react-dom": "^18",
     "react-icons": "^4.11.0",
     "react-modern-drawer": "^1.2.2",
+    "react-router-dom": "^6.17.0",
     "react-slick": "^0.29.0",
+    "react-use-cart": "^1.13.0",
     "rsuite": "^5.40.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.8"

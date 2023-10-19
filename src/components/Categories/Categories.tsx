@@ -36,6 +36,13 @@ const Categories: FC = () => {
                 <Link className={s.category_name} href={`/products/${el?._id}`}>
                   {el?.name}
                 </Link>
+                <div className={s.sub_cat}>
+                  {el?.sub_categories?.map((sub: Category) => (
+                    <Link key={sub?._id} href={`/products/${sub?._id}`}>
+                      {sub?.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

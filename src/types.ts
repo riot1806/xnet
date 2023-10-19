@@ -20,5 +20,15 @@ export type Product = {
   price: number;
   old_price: number;
   category: {};
-  sub_categories: [];
+  sub_categories: Category[];
+};
+
+export type Cart = {
+  _id: string;
+  name: string;
+  description: string;
+  image: string;
+  price: number;
+  category: {};
+  quantity: number;
 };
