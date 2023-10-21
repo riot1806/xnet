@@ -35,7 +35,6 @@ const SingleProduct: FC = () => {
     return el?.id == prodId?.id;
   });
 
-  console.log(queryFind);
 
   return (
     <>

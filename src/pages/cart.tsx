@@ -9,7 +9,7 @@ import Link from "../../node_modules/next/link";
 import axios from "axios";
 
 const Cart = () => {
-  const { isEmpty, updateItemQuantity, emptyCart } = useCart();
+  const { items, isEmpty, updateItemQuantity, emptyCart } = useCart();
   const [isClient, setIsClient] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,34 +18,34 @@ const Cart = () => {
 
   let total = 0;
 
-//   const postTelegram = (e: FormEvent) => {
-//     e.preventDefault();
-//     axios
-//       .post(
-//         `https://api.telegram.org/bot6831109574:AAGDzjb-VFistLWtpNdGTy3X5UyWfLF0jn8/sendMessage?chat_id=-4048096582&text=${encodeURIComponent(
-//           `<b>Детали:</b>
+  const postTelegram = (e: FormEvent) => {
+    e.preventDefault();
+    axios
+      .post(
+        `https://api.telegram.org/bot6831109574:AAGDzjb-VFistLWtpNdGTy3X5UyWfLF0jn8/sendMessage?chat_id=-4048096582&text=${encodeURIComponent(
+          `<b>Детали:</b>
 
-//     <b>Имя: ${name}</b>
-//     <b>Электронная почта: ${email}</b>
-//     <b>Телефон: +${phone}</b>
-//     <b>Cообщение: ${sms}</b>
+    <b>Имя: ${name}</b>
+    <b>Электронная почта: ${email}</b>
+    <b>Телефон: +${phone}</b>
+    <b>Cообщение: ${sms}</b>
     
-// ${items
-//   .map((item: Cart) => {
-//     return `
-//     <b>${item.name}</b>
-//       ${item?.quantity} штук = ${item?.price} сум
-//     `;
-//   })
-//   .join("")}        
-//     <b>К оплате:</b> ${total} сум`
-//         )}&parse_mode=html`
-//       )
-//       .then(() => {
-//         emptyCart();
-//         window.location.reload();
-//       });
-//   };
+${items
+  .map((item: Cart) => {
+    return `
+    <b>${item.name}</b>
+      ${item?.quantity} штук = ${item?.price} сум
+    `;
+  })
+  .join("")}        
+    <b>К оплате:</b> ${total} сум`
+        )}&parse_mode=html`
+      )
+      .then(() => {
+        emptyCart();
+        window.location.reload();
+      });
+  };
 
   useEffect(() => {
     setIsClient(true);

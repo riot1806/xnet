@@ -1,7 +1,7 @@
 export type Banner = {
   id: string;
   image: string;
-  isCatalogBanner: boolean;
+  is_catalog_banner: boolean;
 };
 
 export type Category = {

@@ -69,7 +69,7 @@ const Filters: FC = () => {
                     !el?.parent_category && (
                       <Link
                         key={el?.id}
-                        href={`/products/${el?.id}`}
+                        href={`/categories/${el?.id}`}
                         className={s.filters_twise}
                       >
                         <VscServerProcess />

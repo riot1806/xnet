@@ -42,13 +42,13 @@ const Categories: FC = () => {
                   >
                     <Link
                       className={s.category_name}
-                      href={`/products/${el?.id}`}
+                      href={`/categories/${el?.id}`}
                     >
                       {el?.name}
                     </Link>
                     <div className={s.sub_cat}>
                       {el?.sub_categories?.map((sub: Category) => (
-                        <Link key={sub?.id} href={`/products/${sub?.id}`}>
+                        <Link key={sub?.id} href={`/categories/${sub?.id}`}>
                           {sub?.name}
                         </Link>
                       ))}

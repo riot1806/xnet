@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import s from "../CatalogsBanner/styles.module.scss";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
@@ -6,6 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { catalogs_banner } from "../../catalogs_banner";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import axios from "../../../node_modules/axios/index";
+import { API_KEY } from "@/api/Api";
+import { Banner } from "@/types";
+import Loading from "../Loading";
 
 const settings = {
   dots: false,
@@ -31,14 +35,34 @@ const settings = {
 };
 
 const CatalogsBanner: FC = () => {
+  const [banners, setBanners] = useState<Banner[]>([]);
+  const [load, setLoad] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get<Banner[]>(`${API_KEY}/banners/`)
+      .then((res) => {
+        setBanners(res.data);
+        setLoad(false);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, []);
+
+  const isCatalogBanner = banners?.filter(
+    (el) => el?.is_catalog_banner === true
+  );
+
+  if (load) return <Loading />;
   return (
     <>
       <div className={s.catalogs_banner}>
         <div className={s.container}>
           <Slider {...settings}>
-            {catalogs_banner?.map((el) => (
+            {isCatalogBanner?.map((el) => (
               <div key={el?.id} className={s.catalogs_banner}>
-                <Image fill src={el?.url} alt="banner" />
+                <Image fill src={el?.image} alt="catalog-banner" />
               </div>
             ))}
           </Slider>
