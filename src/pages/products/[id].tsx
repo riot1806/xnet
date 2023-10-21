@@ -8,27 +8,34 @@ import { BsDot } from "react-icons/bs";
 import { Image } from "antd";
 import Link from "../../../node_modules/next/link";
 import { useCart } from "react-use-cart";
+import Loading from "@/components/Loading";
 
 const SingleProduct: FC = () => {
   const { addItem, getItem, removeItem } = useCart();
+  const [load, setLoad] = useState(true);
   const router = useRouter();
   const prodId = router.query;
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     axios
-      .get<Product[]>(`${API_KEY}/products`)
+      .get<Product[]>(`${API_KEY}/products/`)
       .then((res) => {
         setProducts(res.data);
+        setLoad(false);
       })
       .catch((err) => {
         alert(err);
       });
   }, []);
 
+  if (load) return <Loading />;
+
   const queryFind = products?.find((el) => {
-    return el?._id === prodId?._id;
+    return el?.id == prodId?.id;
   });
+
+  console.log(queryFind);
 
   return (
     <>
@@ -47,14 +54,10 @@ const SingleProduct: FC = () => {
               </span>
               <div className={s.add_to_card}>
                 <h2>{queryFind?.price} сум</h2>
-                {!getItem(queryFind?._id) ? (
-                  <button
-                    onClick={() => addItem({ ...queryFind, id: queryFind?._id })}
-                  >
-                    Купить
-                  </button>
+                {!getItem(queryFind?.id) ? (
+                  <button onClick={() => addItem(queryFind)}>Купить</button>
                 ) : (
-                  <button onClick={() => removeItem(queryFind?._id)}>
+                  <button onClick={() => removeItem(queryFind?.id)}>
                     Отменить
                   </button>
                 )}

@@ -24,7 +24,7 @@ const Filters: FC = () => {
 
   useEffect(() => {
     axios
-      .get<Category[]>(`${API_KEY}/categories`)
+      .get<Category[]>(`${API_KEY}/categories/`)
       .then((res) => {
         setCategories(res.data);
       })
@@ -35,7 +35,7 @@ const Filters: FC = () => {
 
   useEffect(() => {
     axios
-      .get<Product[]>(`${API_KEY}/products`)
+      .get<Product[]>(`${API_KEY}/products/`)
       .then((res) => {
         setProducts(res.data);
       })
@@ -64,16 +64,19 @@ const Filters: FC = () => {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                {categories?.map((el) => (
-                  <Link
-                    key={el?._id}
-                    href={`/products/${el?._id}`}
-                    className={s.filters_twise}
-                  >
-                    <VscServerProcess />
-                    <h4>{el?.name}</h4>
-                  </Link>
-                ))}
+                {categories?.map(
+                  (el) =>
+                    !el?.parent_category && (
+                      <Link
+                        key={el?.id}
+                        href={`/products/${el?.id}`}
+                        className={s.filters_twise}
+                      >
+                        <VscServerProcess />
+                        <h4>{el?.name}</h4>
+                      </Link>
+                    )
+                )}
               </AccordionDetails>
             </Accordion>
             <div className={s.search_desk}>
@@ -92,7 +95,7 @@ const Filters: FC = () => {
                   {productSearch?.length ? (
                     productSearch?.map((el) => {
                       return (
-                        <Link href={`/products/${el?._id}`} key={el?._id}>
+                        <Link href={`/products/${el?.id}`} key={el?.id}>
                           <img src={el?.image} alt="" />
                           {"-"}
                           {el?.name.length <= 58 ? (
