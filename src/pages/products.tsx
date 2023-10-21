@@ -1,5 +1,6 @@
 import { API_KEY } from "@/api/Api";
 import CatalogsBanner from "@/components/CatalogsBanner/CatalogsBanner";
+import Loading from "@/components/Loading";
 import { Product } from "@/types";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -9,17 +10,22 @@ import s from "../styles/products.module.scss";
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [load,setLoad] = useState(true)
 
   useEffect(() => {
     axios
-      .get<Product[]>(`${API_KEY}/products`)
+      .get<Product[]>(`${API_KEY}/products/`)
       .then((res) => {
         setProducts(res.data);
+        setLoad(false)
       })
       .catch((err) => {
         alert(err);
       });
   }, []);
+
+  if (load) return <Loading/>
+
   return (
     <>
       <div className={s.products_page_main}>
@@ -29,9 +35,9 @@ const Products = () => {
           <div className={s.products_parent}>
             {products?.map((el) => (
               <Link
-                href={`/products/${el?._id}`}
+                href={`/products/${el?.id}`}
                 className={s.products_card}
-                key={el?._id}
+                key={el?.id}
               >
                 <img src={el?.image} alt={el?.name} />
                 {el?.name?.length <= 45 ? (

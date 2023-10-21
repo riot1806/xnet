@@ -22,7 +22,7 @@ const Search: FC = () => {
 
   useEffect(() => {
     axios
-      .get<Product[]>(`${API_KEY}/products`)
+      .get<Product[]>(`${API_KEY}/products/`)
       .then((res) => {
         setProducts(res.data);
       })
@@ -74,7 +74,7 @@ const Search: FC = () => {
                 {productSearch?.length ? (
                   productSearch?.map((el) => {
                     return (
-                      <Link href={`/products/${el?._id}`} key={el?._id}>
+                      <Link href={`/products/${el?.id}`} key={el?.id}>
                         <img src={el?.image} alt="" />
                         {"-"}
                         {el?.name.length <= 58 ? (

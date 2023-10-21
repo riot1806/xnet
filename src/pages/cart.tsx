@@ -1,44 +1,161 @@
-import { Cart } from "@/types";
-import React from "react";
+"use client";
+import { Cart as CartType } from "@/types";
+import React, { FormEvent, useEffect, useState } from "react";
 import { useCart } from "react-use-cart";
 import s from "../styles/cart.module.scss";
 import { BsTrash3 } from "react-icons/bs";
+import Image from "../../node_modules/next/image";
+import Link from "../../node_modules/next/link";
+import axios from "axios";
 
 const Cart = () => {
-  const { items, isEmpty, updateItemQuantity, removeItem, emptyCart } =
-    useCart();
+  const { isEmpty, updateItemQuantity, emptyCart } = useCart();
+  const [isClient, setIsClient] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [sms, setSms] = useState("Пусто");
 
   let total = 0;
+
+//   const postTelegram = (e: FormEvent) => {
+//     e.preventDefault();
+//     axios
+//       .post(
+//         `https://api.telegram.org/bot6831109574:AAGDzjb-VFistLWtpNdGTy3X5UyWfLF0jn8/sendMessage?chat_id=-4048096582&text=${encodeURIComponent(
+//           `<b>Детали:</b>
+
+//     <b>Имя: ${name}</b>
+//     <b>Электронная почта: ${email}</b>
+//     <b>Телефон: +${phone}</b>
+//     <b>Cообщение: ${sms}</b>
+    
+// ${items
+//   .map((item: Cart) => {
+//     return `
+//     <b>${item.name}</b>
+//       ${item?.quantity} штук = ${item?.price} сум
+//     `;
+//   })
+//   .join("")}        
+//     <b>К оплате:</b> ${total} сум`
+//         )}&parse_mode=html`
+//       )
+//       .then(() => {
+//         emptyCart();
+//         window.location.reload();
+//       });
+//   };
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <>
-      <div className={s.container}>
-        <h1>Корзина</h1>
-        <div className={s.cart_page_main}>
-          {items?.map((el: Cart) => (
-            <div className={s.cart_page_child} key={el?._id}>
-              <img src={el?.image} alt={el?.name} />
-              <p>-</p>
-              {el?.name?.length <= 45 ? (
-                  <h4>{el?.name}</h4>
-                ) : (
-                  <h4>
-                    {el?.name.slice(0, 45)}
-                    {"..."}
-                  </h4>
-                )}
-              <p>-</p>
-              <b>{el?.price} сум</b>
-              <p>-</p>
-              <span>
-                <button>-</button>
-                {el?.quantity}
-                <button>+</button>
-              </span>
-              <BsTrash3 className={s.cart_trash} />
+      {isClient && isEmpty ? (
+        <>
+          <div className={s.empty_cart_main}>
+            <div className={s.empty_cart}>
+              <Image src="/cart.png" alt="ПУСТО" fill />
+              <h2>В вашей корзине пока пусто</h2>
+              <Link href="/products">
+                <button>Вернуться в меню</button>
+              </Link>
             </div>
-          ))}
+          </div>
+        </>
+      ) : (
+        <div className={s.container}>
+          <div className={s.cart_labels}>
+            <h2>Корзина</h2>
+            <button onClick={() => emptyCart()}>
+              <BsTrash3 className={s.cart_trash} />
+              Очистить всё
+            </button>
+          </div>
+          <div className={s.cart_page_main}>
+            {isClient &&
+              items?.map((el: CartType) => {
+                const priceCount = el?.quantity * el?.price;
+                total += priceCount;
+                return (
+                  <div className={s.cart_page_child} key={el?.id}>
+                    <img src={el?.image} alt={el?.name} />
+                    <p>-</p>
+                    {el?.name?.length <= 65 ? (
+                      <h4>{el?.name}</h4>
+                    ) : (
+                      <h4>
+                        {el?.name.slice(0, 65)}
+                        {"..."}
+                      </h4>
+                    )}
+                    <p>-</p>
+                    <b>{priceCount} сум</b>
+                    <p>-</p>
+                    <span>
+                      <button
+                        onClick={() =>
+                          updateItemQuantity(el?.id, el?.quantity - 1)
+                        }
+                      >
+                        -
+                      </button>
+                      <b>{el?.quantity}</b>
+                      <button
+                        onClick={() =>
+                          updateItemQuantity(el?.id, el?.quantity + 1)
+                        }
+                      >
+                        +
+                      </button>
+                    </span>
+                  </div>
+                );
+              })}
+          </div>
+          <div className={s.overall}>
+            <h2>К оплате: {total} сум</h2>
+          </div>
+          <br />
+          <div className={s.cart_deliver_form}>
+            <h2>Оформление заказа</h2>
+            <form>
+              <p>Ваше имя</p>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                required
+              />
+              <p>Ваш e-mail</p>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                required
+              />
+              <p>Ваш номер телефона</p>
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                type="number"
+                required
+              />
+              <p>Ваше сообщение (не обязательно)</p>
+              <textarea
+                value={sms}
+                onChange={(e) => setSms(e.target.value)}
+              ></textarea>
+              <br />
+              <div className={s.go_btn}>
+                <button type="submit">Оформить заказ</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

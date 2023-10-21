@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 import React, { FC, useEffect } from "react";
 import s from "./styles.module.scss";
 import Link from "next/link";

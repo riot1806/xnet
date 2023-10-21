@@ -52,3 +52,15 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background: #11111f;
 }
+
+::selection {
+  color: #fff;
+  background: #11111f;
+}
+
+.loading{
+  text-align: center;
+  font-size: 32px;
+  color: #11111f;
+  padding: 100px 0;
+}

@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 import s from "../styles/home.module.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,6 +11,7 @@ import { API_KEY } from "../api/Api";
 import { useEffect, useState } from "react";
 import { Banner } from "@/types";
 import Categories from "@/components/Categories/Categories";
+import Loading from "@/components/Loading";
 
 const settings = {
   dots: true,
@@ -27,17 +28,21 @@ const settings = {
 
 export default function Home() {
   const [banners, setBanners] = useState<Banner[]>([]);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
     axios
-      .get<Banner[]>(`${API_KEY}/banners`)
+      .get<Banner[]>(`${API_KEY}/banners/`)
       .then((res) => {
         setBanners(res.data);
+        setLoad(false);
       })
       .catch((err) => {
         alert(err);
       });
   }, []);
+
+  if (load) return <Loading />;
 
   return (
     <>
@@ -46,7 +51,7 @@ export default function Home() {
           <h1>Телекоммуникационное обородувание</h1>
           <Slider {...settings}>
             {banners?.map((el) => (
-              <div key={el?._id} className={s.home_banner}>
+              <div key={el?.id} className={s.home_banner}>
                 <Image fill src={el?.image} alt="banner" />
               </div>
             ))}
