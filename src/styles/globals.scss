@@ -64,3 +64,12 @@ img {
   color: #11111f;
   padding: 100px 0;
 }
+
+@media all and (max-width: 600px) {
+  .loading{
+    text-align: center;
+    font-size: 24px;
+    color: #11111f;
+    padding: 100px 0;
+  }
+}
