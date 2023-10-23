@@ -11,11 +11,14 @@ import axios from "../../../node_modules/axios/index";
 import { API_KEY } from "@/api/Api";
 import Link from "../../../node_modules/next/link";
 import Search from "../Search/Search";
+import { useRouter } from "next/router";
 
 const Filters: FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [search, setSearch] = useState("");
+  const [expanded, setExpanded] = useState(false);
+  const router = useRouter();
 
   if (search.length)
     document.body.addEventListener("click", () => {
@@ -42,18 +45,34 @@ const Filters: FC = () => {
       .catch((err) => {
         alert(err);
       });
+
+    const handleRouteChange = () => {
+      setExpanded(false);
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
   }, []);
 
   const productSearch = products?.filter((el) => {
     return el?.name.toLowerCase().includes(search.toLowerCase());
   });
 
+  const handleChange = () => setExpanded(!expanded);
+
   return (
     <>
       <div className={s.filters}>
         <div className={s.container}>
           <div className={s.filters_main}>
-            <Accordion className={s.filters_accordion}>
+            <Accordion
+              className={s.filters_accordion}
+              expanded={expanded}
+              onChange={handleChange}
+            >
               <AccordionSummary
                 expandIcon={<CgMenuGridO className={s.filter_icon} />}
                 aria-controls="panel1a-content"
@@ -69,7 +88,7 @@ const Filters: FC = () => {
                     !el?.parent_category && (
                       <Link
                         key={el?.id}
-                        href={`/products/${el?.id}`}
+                        href={`/categories/${el?.id}`}
                         className={s.filters_twise}
                       >
                         <VscServerProcess />

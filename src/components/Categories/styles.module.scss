@@ -21,7 +21,7 @@
     padding: 20px;
     background-repeat: no-repeat;
     background-position: right;
-    background-color: #5dade2;
+    background-color: #2b2b42c7;
     background-size: contain;
     color: #fff;
     -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -50,12 +50,14 @@
     transition: 0.2s;
     padding: 3px 6px;
     font-size: 14px;
+    border-radius: 4px;
+    background-color: #2b2b42c7;
     &:hover {
       border: 1px solid #fff;
       border-radius: 4px;
       transition: 0.2s;
       background-color: #fff;
-      color: #5dade2;
+      color: #2b2b42c7;
       font-size: 15px;
     }
   }

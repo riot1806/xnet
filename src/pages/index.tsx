@@ -42,6 +42,9 @@ export default function Home() {
       });
   }, []);
 
+
+  const isCatalogBanner = banners?.filter((el) => el?.is_catalog_banner === false)
+
   if (load) return <Loading />;
 
   return (
@@ -50,7 +53,7 @@ export default function Home() {
         <div className={s.container}>
           <h1>Телекоммуникационное обородувание</h1>
           <Slider {...settings}>
-            {banners?.map((el) => (
+            {isCatalogBanner?.map((el) => (
               <div key={el?.id} className={s.home_banner}>
                 <Image fill src={el?.image} alt="banner" />
               </div>
