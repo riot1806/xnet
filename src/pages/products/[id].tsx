@@ -35,6 +35,7 @@ const SingleProduct: FC = () => {
     return el?.id == prodId?.id;
   });
 
+  const UZS = new Intl.NumberFormat("uz-UZ");
 
   return (
     <>
@@ -52,7 +53,7 @@ const SingleProduct: FC = () => {
                 <BsDot className={s.dot} /> В наличии
               </span>
               <div className={s.add_to_card}>
-                <h2>{queryFind?.price} сум</h2>
+                <h2>{UZS.format(queryFind?.price)} сум</h2>
                 {!getItem(queryFind?.id) ? (
                   <button onClick={() => addItem(queryFind)}>Купить</button>
                 ) : (

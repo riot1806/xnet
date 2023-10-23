@@ -10,21 +10,23 @@ import s from "../styles/products.module.scss";
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [load,setLoad] = useState(true)
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
     axios
       .get<Product[]>(`${API_KEY}/products/`)
       .then((res) => {
         setProducts(res.data);
-        setLoad(false)
+        setLoad(false);
       })
       .catch((err) => {
         alert(err);
       });
   }, []);
 
-  if (load) return <Loading/>
+  if (load) return <Loading />;
+
+  const UZS = new Intl.NumberFormat("uz-UZ");
 
   return (
     <>
@@ -57,7 +59,7 @@ const Products = () => {
                   </p>
                 )}
                 <span>
-                  <b>{el?.price} сум</b>
+                  <b>{UZS.format(el?.price)} сум</b>
                   {el?.old_price === null ? null : <h6>{el?.old_price} сум</h6>}
                 </span>
               </Link>

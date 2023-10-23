@@ -1,5 +1,5 @@
 "use client";
-import { Cart as CartType } from "@/types";
+import { Cart, Cart as CartType } from "@/types";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useCart } from "react-use-cart";
 import s from "../styles/cart.module.scss";
@@ -17,6 +17,7 @@ const Cart = () => {
   const [sms, setSms] = useState("Пусто");
 
   let total = 0;
+  const UZS = new Intl.NumberFormat("uz-UZ");
 
   const postTelegram = (e: FormEvent) => {
     e.preventDefault();
@@ -34,11 +35,11 @@ ${items
   .map((item: Cart) => {
     return `
     <b>${item.name}</b>
-      ${item?.quantity} штук = ${item?.price} сум
+      ${item?.quantity} штук = ${UZS.format(item?.price)} сум
     `;
   })
   .join("")}        
-    <b>К оплате:</b> ${total} сум`
+    <b>К оплате:</b> ${UZS.format(total)} сум`
         )}&parse_mode=html`
       )
       .then(() => {
@@ -92,7 +93,7 @@ ${items
                       </h4>
                     )}
                     <p>-</p>
-                    <b>{priceCount} сум</b>
+                    <b>{UZS.format(priceCount)} сум</b>
                     <p>-</p>
                     <span>
                       <button
@@ -116,12 +117,12 @@ ${items
               })}
           </div>
           <div className={s.overall}>
-            <h2>К оплате: {total} сум</h2>
+            <h2>К оплате: {UZS.format(total)} сум</h2>
           </div>
           <br />
           <div className={s.cart_deliver_form}>
             <h2>Оформление заказа</h2>
-            <form>
+            <form onSubmit={postTelegram}>
               <p>Ваше имя</p>
               <input
                 value={name}

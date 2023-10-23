@@ -32,6 +32,8 @@ const SingleCategory = () => {
     return el?.id == catId?.id;
   });
 
+  const UZS = new Intl.NumberFormat("uz-UZ");
+
   return (
     <>
       <div className={s.products_page_main}>
@@ -64,9 +66,9 @@ const SingleCategory = () => {
                     </p>
                   )}
                   <span>
-                    <b>{el?.price} сум</b>
+                    <b>{UZS.format(el?.price)} сум</b>
                     {el?.old_price === null ? null : (
-                      <h6>{el?.old_price} сум</h6>
+                      <h6>{UZS.format(el?.old_price)} сум</h6>
                     )}
                   </span>
                 </Link>

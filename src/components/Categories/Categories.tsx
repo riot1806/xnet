@@ -24,6 +24,7 @@ const Categories: FC = () => {
 
   if (load) return <Loading />;
 
+
   return (
     <>
       <div className={s.categories_main_comp}>
