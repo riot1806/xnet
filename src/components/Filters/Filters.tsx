@@ -114,20 +114,20 @@ const Filters: FC = () => {
                   {productSearch?.length ? (
                     productSearch?.map((el) => {
                       return (
-                        <Link href={`/products/${el?.id}`} key={el?.id}>
-                          <img src={el?.image} alt="" />
-                          {"-"}
-                          {el?.name.length <= 58 ? (
-                            <p>{el?.name}</p>
-                          ) : (
-                            <p>
-                              {el?.name.slice(0, 58)}
-                              {"..."}
-                            </p>
-                          )}
-                          {"-"}
-                          <p>{el?.price} сум</p>
-                        </Link>
+                        <li key={el?.id}>
+                          <Link href={`/products/${el?.id}`}>
+                            <img src={el?.image} alt="" />
+                            {el?.name.length <= 58 ? (
+                              <p>{el?.name}</p>
+                            ) : (
+                              <p>
+                                {el?.name.slice(0, 58)}
+                                {"..."}
+                              </p>
+                            )}
+                            <p>{el?.price} сум</p>
+                          </Link>
+                        </li>
                       );
                     })
                   ) : (

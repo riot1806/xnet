@@ -60,7 +60,9 @@ const Products = () => {
                 )}
                 <span>
                   <b>{UZS.format(el?.price)} сум</b>
-                  {el?.old_price === null ? null : <h6>{el?.old_price} сум</h6>}
+                  {el?.old_price === null ? null : (
+                    <h6>{UZS.format(el?.old_price)} сум</h6>
+                  )}
                 </span>
               </Link>
             ))}

@@ -24,7 +24,6 @@ const Categories: FC = () => {
 
   if (load) return <Loading />;
 
-
   return (
     <>
       <div className={s.categories_main_comp}>
@@ -49,7 +48,7 @@ const Categories: FC = () => {
                     </Link>
                     <div className={s.sub_cat}>
                       {el?.sub_categories?.map((sub: Category) => (
-                        <Link key={sub?.id} href={`/categories/${sub?.id}`}>
+                        <Link key={sub?.id} href={`/sub-categories/${sub?.id}`}>
                           {sub?.name}
                         </Link>
                       ))}

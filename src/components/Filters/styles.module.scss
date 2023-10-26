@@ -1,6 +1,6 @@
 .filters {
   width: 100%;
-  padding: 30px 0;
+  padding: 5px 0;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -23,11 +23,18 @@
   font-size: 24px;
 }
 
+.filters_main{
+  padding: 10px 0;
+  width: 100%;
+  height: fit-content !important;
+  display: flex;
+  justify-content: space-between !important;
+  gap: 50px;
+}
+
 .filters_accordion {
-  width: 360px;
+  width: 500px !important;
   color: #11111f;
-  position: absolute;
-  z-index: 99;
   border-radius: 10px;
 }
 
@@ -46,11 +53,14 @@
   }
 }
 
-.filters_input {
+.search_desk{
+  width: 100%;
   position: relative;
-  width: 65%;
+}
+
+.filters_input {
+  width: 100%;
   height: 50px;
-  left: 35%;
   border-radius: 10px;
   padding-left: 20px;
   font-size: 16px;
@@ -62,13 +72,12 @@
 }
 
 .filters_result_box {
-  width: 54.4%;
+  width: 100%;
   max-height: 450px;
   overflow-y: scroll;
   position: absolute;
-  top: 170px;
-  left: 37.5%;
-  right: 0;
+  top: 65px;
+  left: 0;
   background-color: #fff;
   border-radius: 5px;
   z-index: 99;
@@ -84,7 +93,7 @@
     a {
       padding: 10px;
       display: flex;
-      gap: 10px;
+      gap: 30px;
       align-items: center;
       &:hover {
         opacity: 0.5;
@@ -93,7 +102,7 @@
     img {
       width: 70px;
       height: 60px;
-      object-fit: cover;
+      object-fit: contain;
       border: rgb(180, 180, 180) 1px solid;
       border-radius: 6px;
     }
@@ -102,17 +111,13 @@
 
 @media all and (max-width: 1126px) {
   .filters {
-    padding: 10px 0;
+    padding: 5px 0;
   }
   .filters_main {
     width: 100%;
-    height: 50px;
   }
   .search_mob {
     display: block;
-    position: relative;
-    left: 94%;
-    top: 12px;
   }
   .search_desk {
     display: none;
@@ -120,8 +125,6 @@
   .filters_accordion {
     width: 360px;
     color: #11111f;
-    position: absolute;
-    z-index: 99;
     border-radius: 10px;
     font-size: 14px !important;
   }
@@ -139,8 +142,6 @@
   .filters_accordion {
     width: 360px;
     color: #11111f;
-    position: absolute;
-    z-index: 99;
     border-radius: 10px;
     font-size: 14px !important;
   }
@@ -153,9 +154,6 @@
   }
   .search_mob {
     display: block;
-    position: relative;
-    left: 92%;
-    top: 12px;
   }
 }
 
@@ -166,33 +164,18 @@
   .filters_accordion {
     width: 250px;
     color: #11111f;
-    position: absolute;
-    z-index: 99;
     border-radius: 10px;
     font-size: 14px !important;
   }
-  .filters_main {
+  .filters_main{
+    padding: 10px 0;
     width: 100%;
-    height: 50px;
+    display: flex;
+    justify-content: space-between !important;
+    gap: 20px;
   }
   .search_mob {
-    display: block;
-    position: relative;
-    left: 90%;
-  }
-}
 
-@media all and (max-width: 395px) {
-  .filters {
-    padding: 5px 0;
-  }
-  .filters_main {
-    width: 100%;
-    height: 50px;
-  }
-  .search_mob {
     display: block;
-    position: relative;
-    left: 88%;
   }
 }

@@ -12,13 +12,14 @@ import { useEffect, useState } from "react";
 import { Banner } from "@/types";
 import Categories from "@/components/Categories/Categories";
 import Loading from "@/components/Loading";
+import Link from "../../node_modules/next/link";
 
 const settings = {
   dots: true,
-  fade: true,
+  // fade: true,
   arrows: false,
   infinite: true,
-  speed: 1000,
+  speed: 700,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
@@ -42,8 +43,9 @@ export default function Home() {
       });
   }, []);
 
-
-  const isCatalogBanner = banners?.filter((el) => el?.is_catalog_banner === false)
+  const isCatalogBanner = banners?.filter(
+    (el) => el?.is_catalog_banner === false
+  );
 
   if (load) return <Loading />;
 
@@ -55,7 +57,9 @@ export default function Home() {
           <Slider {...settings}>
             {isCatalogBanner?.map((el) => (
               <div key={el?.id} className={s.home_banner}>
-                <Image fill src={el?.image} alt="banner" />
+                <Link href={`/categories/${el?.category}`}>
+                  <Image fill src={el?.image} alt="banner" />
+                </Link>
               </div>
             ))}
           </Slider>

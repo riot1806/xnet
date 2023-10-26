@@ -29,6 +29,7 @@ const settings = {
       breakpoint: 1199,
       settings: {
         arrows: false,
+        dots: true,
       },
     },
   ],

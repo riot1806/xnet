@@ -1,20 +1,28 @@
 export type Banner = {
-  id: string;
+  id: number;
   image: string;
   is_catalog_banner: boolean;
+  category: number;
 };
 
 export type Category = {
-  id: string;
+  id: number;
   name: string;
   image: string;
   products: [];
   sub_categories: [];
-  parent_category:null | number;
+  parent_category: null | number;
+};
+
+export type SubCategory = {
+  id: number;
+  name: string;
+  parent: number;
+  products: Product[];
 };
 
 export type Product = {
-  id: string;
+  id: number;
   name: string;
   description: string;
   image: string;
@@ -25,7 +33,7 @@ export type Product = {
 };
 
 export type Cart = {
-  id: string;
+  id: number;
   name: string;
   description: string;
   image: string;
