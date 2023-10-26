@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { Category, Product } from "@/types";
+import { Category, Product, SubCategory } from "@/types";
 import Loading from "@/components/Loading";
 import { API_KEY } from "@/api/Api";
 import axios from "../../../node_modules/axios/index";
@@ -8,7 +8,7 @@ import CatalogsBanner from "@/components/CatalogsBanner/CatalogsBanner";
 import s from "../../styles/products.module.scss";
 import Link from "../../../node_modules/next/link";
 
-const SingleCategory = () => {
+const SingleSubCategory = () => {
   const router = useRouter();
   const [category, setCategory] = useState<Category[]>([]);
   const catId = router.query;
@@ -28,10 +28,13 @@ const SingleCategory = () => {
 
   if (load) return <Loading />;
 
-  const categoryFind = category?.find((el: Category) => {
-    return el?.id == catId?.id;
+  const subCatFind = category?.map((cat: Category) => {
+    return cat.sub_categories?.find((sub: SubCategory) => {
+      return sub?.id == catId?.id;
+    });
   });
-  
+
+  const resultFind: any = subCatFind.find((el: any) => el?.id == catId.id);
 
   const UZS = new Intl.NumberFormat("uz-UZ");
 
@@ -40,10 +43,10 @@ const SingleCategory = () => {
       <div className={s.products_page_main}>
         <CatalogsBanner />
         <div className={s.container}>
-          <h1 className={s.products_page_title}>{categoryFind?.name}</h1>
-          {categoryFind?.products.length ? (
+          <h1 className={s.products_page_title}>{resultFind?.name}</h1>
+          {resultFind?.products.length ? (
             <div className={s.products_parent}>
-              {categoryFind?.products?.map((el: Product) => (
+              {resultFind?.products?.map((el: SubCategory) => (
                 <Link
                   href={`/products/${el?.id}`}
                   className={s.products_card}
@@ -84,4 +87,4 @@ const SingleCategory = () => {
   );
 };
 
-export default SingleCategory;
+export default SingleSubCategory;

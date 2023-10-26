@@ -291,16 +291,16 @@
       flex-direction: column;
       text-align: center;
       img {
-        width: 100px;
-        height: 80px;
+        width: 150px;
+        height: 100px;
         object-fit: contain;
       }
       h4 {
-        font-size: 13px;
+        font-size: 14px;
         max-width: 200px;
       }
       b {
-        font-size: 13px;
+        font-size: 16px;
         text-align: center;
       }
       span {
@@ -308,8 +308,8 @@
         gap: 5px;
         align-items: center;
         button {
-          width: 20px;
-          height: 20px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
           border: none;
           background-color: #11111f;

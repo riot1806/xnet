@@ -73,6 +73,9 @@
 }
 
 @media all and (max-width: 952px) {
+  .container h2 {
+    font-size: 18px;
+  }
   .categories_main_parent {
     padding: 30px 0;
     display: flex !important;
@@ -110,7 +113,7 @@
         border-radius: 4px;
         transition: 0.2s;
         background-color: #fff;
-        color: #5dade2;
+        color: #2b2b42c7;
         font-size: 13px;
       }
     }

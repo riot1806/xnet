@@ -1,4 +1,4 @@
-"use client";
+
 import { Cart, Cart as CartType } from "@/types";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useCart } from "react-use-cart";
@@ -162,3 +162,5 @@ ${items
 };
 
 export default Cart;
+
+

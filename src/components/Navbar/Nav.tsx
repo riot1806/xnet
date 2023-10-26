@@ -67,7 +67,7 @@ const Nav: FC = () => {
               </div>
               <Link href={"/cart"} className={s.nav__right}>
                 <HiShoppingCart className={s.shop__cart} />
-                <sub>{items.length}</sub>
+                <span suppressHydrationWarning>{items.length}</span>
               </Link>
             </div>
           </div>

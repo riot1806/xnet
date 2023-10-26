@@ -4,6 +4,7 @@ import NextNProgress from "nextjs-progressbar";
 
 import MainLayout from "@/components/layout/MainLayout";
 import { CartProvider } from "react-use-cart";
+import dynamic from "next/dynamic";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
