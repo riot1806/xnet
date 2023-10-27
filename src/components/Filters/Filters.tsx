@@ -125,7 +125,7 @@ const Filters: FC = () => {
                                 {"..."}
                               </p>
                             )}
-                            <p>{el?.price} сум</p>
+                            <p>{el?.price.toLocaleString()} сум</p>
                           </Link>
                         </li>
                       );

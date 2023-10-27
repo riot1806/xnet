@@ -17,7 +17,6 @@ const Cart = () => {
   const [sms, setSms] = useState("Пусто");
 
   let total = 0;
-  const UZS = new Intl.NumberFormat("uz-UZ");
 
   const postTelegram = (e: FormEvent) => {
     e.preventDefault();
@@ -93,7 +92,7 @@ ${items
                       </h4>
                     )}
                     <p>-</p>
-                    <b>{UZS.format(priceCount)} сум</b>
+                    <b>{priceCount.toLocaleString()} сум</b>
                     <p>-</p>
                     <span>
                       <button
@@ -117,7 +116,7 @@ ${items
               })}
           </div>
           <div className={s.overall}>
-            <h2>К оплате: {UZS.format(total)} сум</h2>
+            <h2>К оплате: {total.toLocaleString()} сум</h2>
           </div>
           <br />
           <div className={s.cart_deliver_form}>

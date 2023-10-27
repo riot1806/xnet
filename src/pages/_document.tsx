@@ -5,8 +5,11 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>X-net</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
         <meta name="description" content="Телекоммуникационное обородувание" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>

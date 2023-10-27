@@ -26,8 +26,6 @@ const Products = () => {
 
   if (load) return <Loading />;
 
-  const UZS = new Intl.NumberFormat("uz-UZ");
-
   return (
     <>
       <div className={s.products_page_main}>
@@ -59,9 +57,9 @@ const Products = () => {
                   </p>
                 )}
                 <span>
-                  <b>{UZS.format(el?.price)} сум</b>
+                  <b>{el?.price.toLocaleString()} сум</b>
                   {el?.old_price === null ? null : (
-                    <h6>{UZS.format(el?.old_price)} сум</h6>
+                    <h6>{el?.old_price.toLocaleString()} сум</h6>
                   )}
                 </span>
               </Link>
