@@ -95,7 +95,7 @@ const Search: FC = () => {
                         </p>
                       )}
                       <p className={s.filters_result_box_price}>
-                        {el?.price} сум
+                        {el?.price.toLocaleString()} сум
                       </p>
                     </Link>
                   );

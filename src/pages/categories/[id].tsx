@@ -31,9 +31,6 @@ const SingleCategory = () => {
   const categoryFind = category?.find((el: Category) => {
     return el?.id == catId?.id;
   });
-  
-
-  const UZS = new Intl.NumberFormat("uz-UZ");
 
   return (
     <>
@@ -67,9 +64,9 @@ const SingleCategory = () => {
                     </p>
                   )}
                   <span>
-                    <b>{UZS.format(el?.price)} сум</b>
+                    <b>{el?.price.toLocaleString()} сум</b>
                     {el?.old_price === null ? null : (
-                      <h6>{UZS.format(el?.old_price)} сум</h6>
+                      <h6>{el?.old_price.toLocaleString()} сум</h6>
                     )}
                   </span>
                 </Link>

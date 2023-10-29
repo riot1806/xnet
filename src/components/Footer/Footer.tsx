@@ -14,7 +14,7 @@ const Footer: FC = () => {
             <div className={s.item}>
               <h2>О компании</h2>
               <p className={s.footer_about_us}>
-                Компания «X-net» была создана в 2012 году. Мы занимаемся
+                Компания «X-NET» была создана в 2022 году. Мы занимаемся
                 поиском, разработкой и внедрением готовых IT-решений;
                 осуществляем комплексные поставки оборудования.
               </p>
@@ -32,8 +32,13 @@ const Footer: FC = () => {
               <h2>Контакты</h2>
               <a target="_blank" href="tel: +998971989889" className={s.twink}>
                 <BsFillTelephoneFill className={s.twink_phone} />
-                <p>+998 (97) 198-98-89 Хусан</p>
+                <p>+998 (33) 198-98-89 Хусан</p>
               </a>
+              <a target="_blank" href="tel: +998971988998" className={s.twink}>
+                <BsFillTelephoneFill className={s.twink_phone} />
+                <p>+998 (33) 189-89-98 Хусан</p>
+              </a>
+              <br />
               <div className={s.twink}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +52,8 @@ const Footer: FC = () => {
                   <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                 </svg>
                 <p>
-                  Учувчилар шахарчаси 1, <br /> 10016 Ташкент
+                  г. Ташкент,
+                  <br /> Сергелинский район, <br /> ул. Учувчулар шахарчаси 80,
                 </p>
               </div>
             </div>
@@ -55,10 +61,13 @@ const Footer: FC = () => {
           <hr />
           <div className={s.footer_main_bottom}>
             <p className={s.footer_main_bottom_title}>
-              © 2012-2023 «X-net» - продажа сетевого оборудования
+              © 2022 «X-net» - продажа сетевого оборудования
             </p>
             <p>
-              Developed by <Link style={{ color: "#0C96F3" }} href="/">X-net</Link>
+              Developed by{" "}
+              <a style={{ color: "#0C96F3" }} href="mailto:info@xnet.uz">
+                info@xnet.uz
+              </a>
             </p>
           </div>
         </div>
