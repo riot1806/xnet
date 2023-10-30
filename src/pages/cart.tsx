@@ -30,6 +30,7 @@ const Cart = () => {
     <b>Cообщение: ${sms}</b>
     
 ${items
+  //  @ts-ignore
   .map((item: Cart) => {
     return `
     <b>${item.name}</b>
@@ -75,6 +76,7 @@ ${items
           </div>
           <div className={s.cart_page_main}>
             {isClient &&
+            // @ts-ignore
               items?.map((el: CartType) => {
                 const priceCount = el?.quantity * el?.price;
                 total += priceCount;
@@ -96,7 +98,7 @@ ${items
                     <span>
                       <button
                         onClick={() =>
-                          updateItemQuantity(el?.id, el?.quantity - 1)
+                          updateItemQuantity(el?.id.toString()!, el?.quantity - 1)
                         }
                       >
                         -
@@ -104,7 +106,7 @@ ${items
                       <b>{el?.quantity}</b>
                       <button
                         onClick={() =>
-                          updateItemQuantity(el?.id, el?.quantity + 1)
+                          updateItemQuantity(el?.id.toString()!, el?.quantity + 1)
                         }
                       >
                         +

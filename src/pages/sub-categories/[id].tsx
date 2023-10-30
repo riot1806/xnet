@@ -30,7 +30,7 @@ const SingleSubCategory = () => {
 
   const subCatFind = category?.map((cat: Category) => {
     return cat.sub_categories?.find((sub: SubCategory) => {
-      return sub?.id == catId?.id;
+      return sub?.id == +catId?.id!;
     });
   });
 

@@ -29,7 +29,7 @@ const SingleCategory = () => {
   if (load) return <Loading />;
 
   const categoryFind = category?.find((el: Category) => {
-    return el?.id == catId?.id;
+    return el?.id == +catId?.id!;
   });
 
   return (
