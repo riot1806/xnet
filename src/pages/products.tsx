@@ -69,7 +69,7 @@ const Products = () => {
           <div className={s.more_btn}>
             <button
               style={{
-                display: more >= products?.length ? "none" : null,
+                display: more >= products?.length ? "none" : "block",
               }}
               onClick={() => setMore((prev) => prev + 8)}
             >
