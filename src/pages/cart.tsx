@@ -1,4 +1,3 @@
-
 import { Cart, Cart as CartType } from "@/types";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useCart } from "react-use-cart";
@@ -34,11 +33,11 @@ ${items
   .map((item: Cart) => {
     return `
     <b>${item.name}</b>
-      ${item?.quantity} штук = ${UZS.format(item?.price)} сум
+      ${item?.quantity} штук = ${item?.price.toLocaleString()} сум
     `;
   })
   .join("")}        
-    <b>К оплате:</b> ${UZS.format(total)} сум`
+    <b>К оплате:</b> ${total.toLocaleString()} сум`
         )}&parse_mode=html`
       )
       .then(() => {
@@ -161,5 +160,3 @@ ${items
 };
 
 export default Cart;
-
-

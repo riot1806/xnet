@@ -12,6 +12,26 @@
   }
 }
 
+.more_btn{
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  button{
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #11111f;
+    color: #fff;
+    border: 2px solid #11111f;
+    cursor: pointer;
+    font-size: 16px;
+    &:active{
+      background-color: #fff;
+      color: #11111f;
+    }
+  }
+}
+
 .products_parent {
   width: 100%;
 

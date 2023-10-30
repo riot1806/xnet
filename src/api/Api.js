@@ -1,1 +1,1 @@
-export const API_KEY = "http://riot1806.pythonanywhere.com";
+export const API_KEY = "https://api.x-net.uz";

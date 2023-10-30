@@ -11,6 +11,7 @@ import s from "../styles/products.module.scss";
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [load, setLoad] = useState(true);
+  const [more, setMore] = useState(28);
 
   useEffect(() => {
     axios
@@ -33,7 +34,7 @@ const Products = () => {
         <div className={s.container}>
           <h1 className={s.products_page_title}>Все наши продукты</h1>
           <div className={s.products_parent}>
-            {products?.map((el) => (
+            {products?.slice(0, more).map((el) => (
               <Link
                 href={`/products/${el?.id}`}
                 className={s.products_card}
@@ -64,6 +65,16 @@ const Products = () => {
                 </span>
               </Link>
             ))}
+          </div>
+          <div className={s.more_btn}>
+            <button
+              style={{
+                display: more >= products?.length ? "none" : null,
+              }}
+              onClick={() => setMore((prev) => prev + 8)}
+            >
+              Загрузить ещё
+            </button>
           </div>
         </div>
       </div>
