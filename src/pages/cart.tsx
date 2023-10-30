@@ -76,7 +76,7 @@ ${items
           </div>
           <div className={s.cart_page_main}>
             {isClient &&
-            // @ts-ignore
+              // @ts-ignore
               items?.map((el: CartType) => {
                 const priceCount = el?.quantity * el?.price;
                 total += priceCount;
@@ -98,7 +98,8 @@ ${items
                     <span>
                       <button
                         onClick={() =>
-                          updateItemQuantity(el?.id.toString()!, el?.quantity - 1)
+                          // @ts-ignore
+                          updateItemQuantity(el?.id!, el?.quantity - 1)
                         }
                       >
                         -
@@ -106,7 +107,8 @@ ${items
                       <b>{el?.quantity}</b>
                       <button
                         onClick={() =>
-                          updateItemQuantity(el?.id.toString()!, el?.quantity + 1)
+                          // @ts-ignore
+                          updateItemQuantity(el?.id!, el?.quantity + 1)
                         }
                       >
                         +

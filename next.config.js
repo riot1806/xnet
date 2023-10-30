@@ -10,7 +10,7 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  // output: "export",
+  output: "export",
   trailingSlash: true,
 };
 
