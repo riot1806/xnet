@@ -53,13 +53,17 @@ const SingleProduct: FC = () => {
               </span>
               <div className={s.add_to_card}>
                 <h2>{queryFind?.price.toLocaleString()} сум</h2>
-                {!getItem(queryFind?.id.toString()!) ? (
+                {/* @ts-ignore */}
+                {!getItem(queryFind?.id!) ? (
                   // @ts-ignore
                   <button onClick={() => addItem(queryFind)}>Купить</button>
                 ) : (
-                  <button onClick={() => removeItem(queryFind?.id.toString()!)}>
+                 <>
+                 {/* @ts-ignore */}
+                  <button onClick={() => removeItem(queryFind?.id!)}>
                     Отменить
                   </button>
+                 </>
                 )}
               </div>
               <div className={s.empty}></div>
