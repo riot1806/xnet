@@ -6,6 +6,7 @@ import { BsTrash3 } from "react-icons/bs";
 import Image from "../../node_modules/next/image";
 import Link from "../../node_modules/next/link";
 import axios from "axios";
+import Head from "../../node_modules/next/head";
 
 const Cart = () => {
   const { items, isEmpty, updateItemQuantity, emptyCart } = useCart();
@@ -53,6 +54,9 @@ ${items
 
   return (
     <>
+    <Head>
+    <title>X-net | Телекоммуникационное обородувание</title>
+    </Head>
       {isClient && isEmpty ? (
         <>
           <div className={s.empty_cart_main}>

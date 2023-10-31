@@ -16,19 +16,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 
   .nav__center {
     display: flex;
     gap: 50px;
+    .nav_center_link {
+      margin-top: 15px;
+    }
+    span {
+      a {
+        display: flex;
+        gap: 7px;
+        padding: 2px 0;
+      }
+    }
     a {
       color: #fff;
       font-size: 17px;
-      transition: 0.5s;
-      &:hover {
-        transform: scale(1.1);
-        transition: 0.5s;
-      }
     }
+  }
+  .tg_link {
+    font-size: 18px !important;
+    margin-top: 15px !important;
   }
   .nav__right {
     color: #fff;
@@ -51,16 +61,25 @@
   display: none;
 }
 
+@media all and (max-width: 1183px) {
+  .nav__center {
+    display: flex;
+    gap: 20px;
+    .nav_center_link {
+      margin-top: 0px !important;
+    }
+  }
+  .tg_link,
+  .twink {
+    display: none !important;
+  }
+}
+
 @media all and (max-width: 1070px) {
   .nav__center {
     display: flex;
     a {
       color: #fff;
-      transition: 0.5s;
-      &:hover {
-        transform: scale(1.1);
-        transition: 0.5s;
-      }
     }
   }
   .nav__right {
@@ -104,7 +123,7 @@
       padding: 40px;
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 20px;
       font-size: 17px;
     }
   }
@@ -114,8 +133,21 @@
     height: 30px !important;
     margin-bottom: 15px;
   }
-  .logo{
+  .logo {
     width: 120px !important;
     height: 30px !important;
+  }
+  .tg_link,
+  .twink {
+    display: flex !important;
+  }
+  .mobile_routes {
+    span {
+      a {
+        display: flex !important;
+        gap: 7px !important;
+        padding: 2px 0 !important;
+      }
+    }
   }
 }

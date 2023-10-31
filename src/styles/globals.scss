@@ -36,7 +36,7 @@ img {
 
 ::-webkit-scrollbar {
   width: 4px;
-  height: 4px;
+  height: 2px;
 }
 
 /* Track */
@@ -51,11 +51,6 @@ img {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #11111f;
-}
-
-::selection {
-  color: #fff;
   background: #11111f;
 }
 
@@ -74,3 +69,4 @@ img {
     padding: 100px 0;
   }
 }
+

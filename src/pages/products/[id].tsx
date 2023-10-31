@@ -9,6 +9,7 @@ import { Image } from "antd";
 import Link from "../../../node_modules/next/link";
 import { useCart } from "react-use-cart";
 import Loading from "@/components/Loading";
+import Head from "../../../node_modules/next/head";
 
 const SingleProduct: FC = () => {
   const { addItem, getItem, removeItem } = useCart();
@@ -38,6 +39,9 @@ const SingleProduct: FC = () => {
 
   return (
     <>
+    <Head>
+    <title>X-net | Телекоммуникационное обородувание</title>
+    </Head>
       <div className={s.single_product_page}>
         <div className={s.container}>
           <h1 className={s.single_product_name}>{queryFind?.name}</h1>

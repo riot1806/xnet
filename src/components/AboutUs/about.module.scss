@@ -11,9 +11,9 @@
 }
 
 .home_about_contents{
-    text-align: center;
+    text-align: left;
     p{
-        font-size: 15px;
+        font-size: 16px;
         letter-spacing: 0.4px;
     }
     h2{
@@ -24,7 +24,7 @@
 
 @media all and (max-width: 600px) {
     .home_about_contents{
-        text-align: center;
+        text-align: left;
         p{
             font-size: 13px;
             letter-spacing: 0px;

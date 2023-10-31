@@ -64,7 +64,7 @@ const Footer: FC = () => {
               © 2022 «X-net» - продажа сетевого оборудования
             </p>
             <p>
-              Developed by{" "}
+            Электронная почта:{" "}
               <a style={{ color: "#0C96F3" }} href="mailto:info@xnet.uz">
                 info@xnet.uz
               </a>
