@@ -36,9 +36,8 @@
       font-size: 17px;
     }
   }
-  .tg_link {
-    font-size: 18px !important;
-    margin-top: 15px !important;
+  .tg_link { 
+    margin-top: 15px;
   }
   .nav__right {
     color: #fff;
@@ -149,5 +148,8 @@
         padding: 2px 0 !important;
       }
     }
+  }
+  .tg_link { 
+    margin-top: 0px !important;
   }
 }

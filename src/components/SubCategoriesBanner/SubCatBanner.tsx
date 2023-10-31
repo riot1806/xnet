@@ -42,7 +42,11 @@ const SubCatBanner = () => {
                 className={s.sub_cat_banner_card}
                 key={el?.id}
               >
-                <Image fill src="/sub_cat.webp" alt="" />
+                {el?.image === null ? (
+                  <Image fill src="/sub_cat.webp" alt="" />
+                ) : (
+                  <Image fill src={el?.image} alt="" />
+                )}
                 <p>{el?.name}</p>
               </Link>
             );

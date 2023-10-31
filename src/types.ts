@@ -18,6 +18,7 @@ export type SubCategory = {
   id: number;
   name: string;
   parent: number;
+  image:string;
   products: Product[];
 };
 
