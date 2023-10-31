@@ -57,6 +57,7 @@ const Nav: FC = () => {
                     <div className={s.mobile_routes}>
                       <Link href={"/"}>Главная Страница</Link>
                       <Link href={"/products"}>Товары</Link>
+                      <hr />
                       <span>
                         <a
                           className={s.tg_link}
