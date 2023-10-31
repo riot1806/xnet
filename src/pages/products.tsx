@@ -1,17 +1,17 @@
 import { API_KEY } from "@/api/Api";
-import CatalogsBanner from "@/components/CatalogsBanner/CatalogsBanner";
 import Loading from "@/components/Loading";
 import { Product } from "@/types";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "../../node_modules/axios/index";
+import Head from "../../node_modules/next/head";
 import Link from "../../node_modules/next/link";
 import s from "../styles/products.module.scss";
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [load, setLoad] = useState(true);
-  const [more, setMore] = useState(28);
+  const [more, setMore] = useState(20);
 
   useEffect(() => {
     axios
@@ -29,10 +29,15 @@ const Products = () => {
 
   return (
     <>
+    <Head>
+    <title>X-net | Телекоммуникационное обородувание</title>
+    </Head>
       <div className={s.products_page_main}>
-        <CatalogsBanner />
         <div className={s.container}>
-          <h1 className={s.products_page_title}>Все наши продукты</h1>
+          <span className={s.products_page_title}>
+            <h1>Все наши продукты.</h1>
+            <p>{products.length} товаров</p>
+          </span>
           <div className={s.products_parent}>
             {products?.slice(0, more).map((el) => (
               <Link

@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Image from "next/image";
 import AboutUs from "@/components/AboutUs/AboutUs";
-import Filters from "@/components/Filters/Filters";
 import axios from "axios";
 import { API_KEY } from "../api/Api";
 import { useEffect, useState } from "react";
@@ -13,6 +12,8 @@ import { Banner } from "@/types";
 import Categories from "@/components/Categories/Categories";
 import Loading from "@/components/Loading";
 import Link from "../../node_modules/next/link";
+import Head from "../../node_modules/next/head";
+// import CatalogsBanner from "@/components/CatalogsBanner/CatalogsBanner";
 
 const settings = {
   dots: true,
@@ -51,6 +52,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>X-net | Телекоммуникационное обородувание</title>
+      </Head>
       <div className={s.home_header}>
         <div className={s.container}>
           <h1>Телекоммуникационное обородувание</h1>
@@ -66,6 +70,7 @@ export default function Home() {
         </div>
       </div>
       <Categories />
+      {/* <CatalogsBanner /> */}
       <AboutUs />
     </>
   );
