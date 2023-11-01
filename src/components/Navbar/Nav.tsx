@@ -85,7 +85,7 @@ const Nav: FC = () => {
                           className={s.twink}
                         >
                           <BsFillTelephoneFill className={s.twink_phone} />
-                          <p>+998 (33) 198-98-89 Хусан</p>
+                          <p>+998 (33) 198-98-89 Хaсан</p>
                         </a>
                         <br />
                         <a
@@ -138,7 +138,7 @@ const Nav: FC = () => {
                     className={s.twink}
                   >
                     <BsFillTelephoneFill className={s.twink_phone} />
-                    <p>+998 (33) 198-98-89 Хусан</p>
+                    <p>+998 (33) 198-98-89 Хaсан</p>
                   </a>
                   <a
                     target="_blank"

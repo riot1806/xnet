@@ -6,10 +6,10 @@ import s from "../products/styles.module.scss";
 import { useRouter } from "../../../node_modules/next/router";
 import { BsDot } from "react-icons/bs";
 import { Image } from "antd";
-import Link from "../../../node_modules/next/link";
 import { useCart } from "react-use-cart";
 import Loading from "@/components/Loading";
 import Head from "../../../node_modules/next/head";
+import { characteristics } from "../../characteristics";
 
 const SingleProduct: FC = () => {
   const { addItem, getItem, removeItem } = useCart();
@@ -36,12 +36,11 @@ const SingleProduct: FC = () => {
     return el?.id == +prodId?.id!;
   });
 
-
   return (
     <>
-    <Head>
-    <title>X-net | Телекоммуникационное обородувание</title>
-    </Head>
+      <Head>
+        <title>X-net | Телекоммуникационное обородувание</title>
+      </Head>
       <div className={s.single_product_page}>
         <div className={s.container}>
           <h1 className={s.single_product_name}>{queryFind?.name}</h1>
@@ -62,12 +61,12 @@ const SingleProduct: FC = () => {
                   // @ts-ignore
                   <button onClick={() => addItem(queryFind)}>Купить</button>
                 ) : (
-                 <>
-                 {/* @ts-ignore */}
-                  <button onClick={() => removeItem(queryFind?.id!)}>
-                    Отменить
-                  </button>
-                 </>
+                  <>
+                    {/* @ts-ignore */}
+                    <button onClick={() => removeItem(queryFind?.id!)}>
+                      Отменить
+                    </button>
+                  </>
                 )}
               </div>
               <div className={s.empty}></div>
@@ -75,10 +74,20 @@ const SingleProduct: FC = () => {
               <p>{queryFind?.description}</p>
             </div>
           </div>
+          <div className={s.product_characteristics}>
+            <h3>Характеристики</h3>
+            <br />
+            {characteristics?.map((el) => {
+              return (
+                <div className={s.characteristics_twise} key={el?.id}>
+                  <span>{el?.type} :</span>
+                  <span>{el?.desc}</span>
+                </div>
+              );
+            })}
+          </div>
           <div className={s.come_back}>
-            <Link href="/products">
-              <button>Назад</button>
-            </Link>
+            <button onClick={() => router.back()}>Назад</button>
           </div>
         </div>
       </div>
