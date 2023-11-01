@@ -30,11 +30,11 @@ const Footer: FC = () => {
             </div>
             <div className={s.item}>
               <h2>Контакты</h2>
-              <a target="_blank" href="tel: +998971989889" className={s.twink}>
+              <a target="_blank" href="tel: +998331989889" className={s.twink}>
                 <BsFillTelephoneFill className={s.twink_phone} />
                 <p>+998 (33) 198-98-89 Хaсан</p>
               </a>
-              <a target="_blank" href="tel: +998971988998" className={s.twink}>
+              <a target="_blank" href="tel: +998331898998" className={s.twink}>
                 <BsFillTelephoneFill className={s.twink_phone} />
                 <p>+998 (33) 189-89-98 Хусан</p>
               </a>

@@ -134,7 +134,7 @@ const Nav: FC = () => {
                 <span>
                   <a
                     target="_blank"
-                    href="tel: +998971989889"
+                    href="tel: +998331989889"
                     className={s.twink}
                   >
                     <BsFillTelephoneFill className={s.twink_phone} />
@@ -142,7 +142,7 @@ const Nav: FC = () => {
                   </a>
                   <a
                     target="_blank"
-                    href="tel: +998971988998"
+                    href="tel: +998331898998"
                     className={s.twink}
                   >
                     <BsFillTelephoneFill className={s.twink_phone} />
