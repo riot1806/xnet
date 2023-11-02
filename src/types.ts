@@ -18,7 +18,7 @@ export type SubCategory = {
   id: number;
   name: string;
   parent: number;
-  image:string;
+  image: string;
   products: Product[];
 };
 
@@ -31,6 +31,7 @@ export type Product = {
   old_price: number;
   category: {};
   sub_categories: Category[];
+  characteristics: [];
 };
 
 export type Cart = {
@@ -41,4 +42,11 @@ export type Cart = {
   price: number;
   category: {};
   quantity: number;
+};
+
+export type Characteristics = {
+  id: number;
+  key: string;
+  value: string;
+  product: number;
 };

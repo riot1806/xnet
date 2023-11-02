@@ -1,5 +1,5 @@
 import { API_KEY } from "@/api/Api";
-import { Product } from "@/types";
+import { Characteristics, Product } from "@/types";
 import React, { FC, useEffect, useState } from "react";
 import axios from "../../../node_modules/axios/index";
 import s from "../products/styles.module.scss";
@@ -77,14 +77,18 @@ const SingleProduct: FC = () => {
           <div className={s.product_characteristics}>
             <h3>Характеристики</h3>
             <br />
-            {characteristics?.map((el) => {
-              return (
-                <div className={s.characteristics_twise} key={el?.id}>
-                  <span>{el?.type} :</span>
-                  <span>{el?.desc}</span>
-                </div>
-              );
-            })}
+            {queryFind?.characteristics?.length ? (
+              queryFind?.characteristics?.map((el: Characteristics) => {
+                return (
+                  <div className={s.characteristics_twise} key={el?.id}>
+                    <span className={s.characteristics_key}>{el?.key} :</span>
+                    <span className={s.characteristics_key_value}>{el?.value}</span>
+                  </div>
+                );
+              })
+            ) : (
+              <p className={s.empty_xarakter}>Пусто</p>
+            )}
           </div>
           <div className={s.come_back}>
             <button onClick={() => router.back()}>Назад</button>
