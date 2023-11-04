@@ -1,35 +1,24 @@
-import React, { FC, useEffect, useState } from "react";
-import s from "../Search/styles.module.scss";
-import { AiOutlineSearch } from "react-icons/ai";
-import Drawer from "react-modern-drawer";
-import "react-modern-drawer/dist/index.css";
-import { BsArrowLeft } from "react-icons/bs";
-import Link from "../../../node_modules/next/link";
-import axios from "../../../node_modules/axios/index";
-import { API_KEY } from "@/api/Api";
-import { Product } from "@/types";
-import { useRouter } from "../../../node_modules/next/router";
+import { useEffect, useState } from 'react';
+import s from '../Search/styles.module.scss';
+import 'react-modern-drawer/dist/index.css';
 
-const Search: FC = () => {
+import { useRouter } from 'next/router';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { BsArrowLeft } from 'react-icons/bs';
+import Drawer from 'react-modern-drawer';
+import Link from 'next/link';
+
+import { useGetProductsQuery } from '@/redux/api/productApi';
+
+const Search = () => {
+  const { data: products } = useGetProductsQuery(null);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [products, setProducts] = useState<Product[]>([]);
-  const [searchMob, setSearchMob] = useState("");
+  const [searchMob, setSearchMob] = useState('');
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
-    setSearchMob("");
+    setSearchMob('');
   };
-
-  useEffect(() => {
-    axios
-      .get<Product[]>(`${API_KEY}/products/`)
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -41,11 +30,11 @@ const Search: FC = () => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = 'hidden';
     }
 
     if (!isOpen) {
-      document.body.style.overflowY = "scroll";
+      document.body.style.overflowY = 'scroll';
     }
   }, []);
 
@@ -56,9 +45,9 @@ const Search: FC = () => {
       <Drawer
         open={isOpen}
         onClose={toggleDrawer}
-        direction="right"
-        className="bla bla bla"
-        size={"100%"}
+        direction='right'
+        className='bla bla bla'
+        size={'100%'}
       >
         <div className={s.search_comp}>
           <div className={s.search_comp_labels}>
@@ -72,12 +61,12 @@ const Search: FC = () => {
             <input
               value={searchMob}
               onChange={(e) => setSearchMob(e.target.value)}
-              type="text"
-              placeholder="Название товара..."
+              type='text'
+              placeholder='Название товара...'
             />
           </div>
           <div
-            style={{ display: searchMob.length ? "block" : "none" }}
+            style={{ display: searchMob.length ? 'block' : 'none' }}
             className={s.filters_result_box}
           >
             <ul>
@@ -85,13 +74,13 @@ const Search: FC = () => {
                 productSearch?.map((el) => {
                   return (
                     <Link href={`/products/${el?.id}`} key={el?.id}>
-                      <img src={el?.image} alt="" />
+                      <img src={el?.image} alt='' />
                       {el?.name.length <= 58 ? (
                         <p>{el?.name}</p>
                       ) : (
                         <p>
                           {el?.name.slice(0, 58)}
-                          {"..."}
+                          {'...'}
                         </p>
                       )}
                       <p className={s.filters_result_box_price}>

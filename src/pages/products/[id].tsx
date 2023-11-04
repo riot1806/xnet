@@ -1,36 +1,22 @@
-import { API_KEY } from "@/api/Api";
-import { Characteristics, Product } from "@/types";
-import React, { FC, useEffect, useState } from "react";
-import axios from "../../../node_modules/axios/index";
-import s from "../products/styles.module.scss";
-import { useRouter } from "../../../node_modules/next/router";
-import { BsDot } from "react-icons/bs";
-import { Image } from "antd";
-import { useCart } from "react-use-cart";
-import Loading from "@/components/Loading";
-import Head from "../../../node_modules/next/head";
-import { characteristics } from "../../characteristics";
+import s from '../products/styles.module.scss';
 
-const SingleProduct: FC = () => {
+import { useRouter } from 'next/router';
+import { useCart } from 'react-use-cart';
+import { BsDot } from 'react-icons/bs';
+import { Image } from 'antd';
+import Head from 'next/head';
+
+import { useGetProductsQuery } from '@/redux/api/productApi';
+import { Characteristics } from '@/types';
+import Loading from '@/components/Loading';
+
+const SingleProduct = () => {
   const { addItem, getItem, removeItem } = useCart();
-  const [load, setLoad] = useState(true);
+  const { data: products, isLoading } = useGetProductsQuery(null);
   const router = useRouter();
   const prodId = router.query;
-  const [products, setProducts] = useState<Product[]>([]);
 
-  useEffect(() => {
-    axios
-      .get<Product[]>(`${API_KEY}/products/`)
-      .then((res) => {
-        setProducts(res.data);
-        setLoad(false);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }, []);
-
-  if (load) return <Loading />;
+  if (isLoading) return <Loading />;
 
   const queryFind = products?.find((el) => {
     return el?.id == +prodId?.id!;
@@ -82,7 +68,9 @@ const SingleProduct: FC = () => {
                 return (
                   <div className={s.characteristics_twise} key={el?.id}>
                     <span className={s.characteristics_key}>{el?.key} :</span>
-                    <span className={s.characteristics_key_value}>{el?.value}</span>
+                    <span className={s.characteristics_key_value}>
+                      {el?.value}
+                    </span>
                   </div>
                 );
               })

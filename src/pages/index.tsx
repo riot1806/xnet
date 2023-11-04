@@ -1,18 +1,16 @@
-"use client";
-import s from "../styles/home.module.scss";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import Image from "next/image";
-import AboutUs from "@/components/AboutUs/AboutUs";
-import axios from "axios";
-import { API_KEY } from "../api/Api";
-import { useEffect, useState } from "react";
-import { Banner } from "@/types";
-import Categories from "@/components/Categories/Categories";
-import Loading from "@/components/Loading";
-import Link from "../../node_modules/next/link";
-import Head from "../../node_modules/next/head";
+import s from '../styles/home.module.scss';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import Head from 'next/head';
+import Slider from 'react-slick';
+
+import { useGetBannersQuery } from '@/redux/api/bannerApi';
+import AboutUs from '@/components/AboutUs/AboutUs';
+import Categories from '@/components/Categories/Categories';
+import Loading from '@/components/Loading';
 // import CatalogsBanner from "@/components/CatalogsBanner/CatalogsBanner";
 
 const settings = {
@@ -25,30 +23,17 @@ const settings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 6000,
-  cssEase: "linear",
+  cssEase: 'linear',
 };
 
 export default function Home() {
-  const [banners, setBanners] = useState<Banner[]>([]);
-  const [load, setLoad] = useState(true);
-
-  useEffect(() => {
-    axios
-      .get<Banner[]>(`${API_KEY}/banners/`)
-      .then((res) => {
-        setBanners(res.data);
-        setLoad(false);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }, []);
+  const { data: banners, isLoading } = useGetBannersQuery(null);
 
   const isCatalogBanner = banners?.filter(
     (el) => el?.is_catalog_banner === false
   );
 
-  if (load) return <Loading />;
+  if (isLoading) return <Loading />;
 
   return (
     <>
@@ -62,7 +47,7 @@ export default function Home() {
             {isCatalogBanner?.map((el) => (
               <div key={el?.id} className={s.home_banner}>
                 <Link href={`/categories/${el?.category}`}>
-                  <Image fill src={el?.image} alt="banner" />
+                  <Image fill src={el?.image} alt='banner' />
                 </Link>
               </div>
             ))}

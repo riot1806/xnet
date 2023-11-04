@@ -1,42 +1,28 @@
-import { API_KEY } from "@/api/Api";
-import Loading from "@/components/Loading";
-import { Product } from "@/types";
-import React, { useEffect } from "react";
-import { useState } from "react";
-import axios from "../../node_modules/axios/index";
-import Head from "../../node_modules/next/head";
-import Link from "../../node_modules/next/link";
-import s from "../styles/products.module.scss";
+import { useState } from 'react';
+import s from '../styles/products.module.scss';
+
+import Head from 'next/head';
+import Link from 'next/link';
+
+import { useGetProductsQuery } from '@/redux/api/productApi';
+import Loading from '@/components/Loading';
 
 const Products = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [load, setLoad] = useState(true);
+  const { data: products, isLoading } = useGetProductsQuery(null);
   const [more, setMore] = useState(20);
 
-  useEffect(() => {
-    axios
-      .get<Product[]>(`${API_KEY}/products/`)
-      .then((res) => {
-        setProducts(res.data);
-        setLoad(false);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }, []);
-
-  if (load) return <Loading />;
+  if (isLoading) return <Loading />;
 
   return (
     <>
-    <Head>
-    <title>X-net | Телекоммуникационное обородувание</title>
-    </Head>
+      <Head>
+        <title>X-net | Телекоммуникационное обородувание</title>
+      </Head>
       <div className={s.products_page_main}>
         <div className={s.container}>
           <span className={s.products_page_title}>
             <h1>Все наши продукты.</h1>
-            <p>{products.length} товаров</p>
+            <p>{products?.length} товаров</p>
           </span>
           <div className={s.products_parent}>
             {products?.slice(0, more).map((el) => (
@@ -51,7 +37,7 @@ const Products = () => {
                 ) : (
                   <h4>
                     {el?.name.slice(0, 45)}
-                    {"..."}
+                    {'...'}
                   </h4>
                 )}
                 {el?.description.length <= 85 ? (
@@ -59,7 +45,7 @@ const Products = () => {
                 ) : (
                   <p>
                     {el?.description.slice(0, 85)}
-                    {"..."}
+                    {'...'}
                   </p>
                 )}
                 <span>
@@ -74,7 +60,7 @@ const Products = () => {
           <div className={s.more_btn}>
             <button
               style={{
-                display: more >= products?.length ? "none" : "block",
+                display: more >= products?.length! ? 'none' : 'block',
               }}
               onClick={() => setMore((prev) => prev + 8)}
             >

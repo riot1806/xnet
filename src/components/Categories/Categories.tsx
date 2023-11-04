@@ -1,28 +1,15 @@
-import { API_KEY } from "@/api/Api";
-import { Category } from "@/types";
-import React, { FC, useEffect, useState } from "react";
-import s from "../Categories/styles.module.scss";
-import axios from "axios";
-import Link from "../../../node_modules/next/link";
-import Loading from "../Loading";
+import s from '../Categories/styles.module.scss';
 
-const Categories: FC = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [load, setLoad] = useState(true);
+import Link from 'next/link';
 
-  useEffect(() => {
-    axios
-      .get<Category[]>(`${API_KEY}/categories/`)
-      .then((res) => {
-        setCategories(res.data);
-        setLoad(false);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }, []);
+import { useGetCategoriesQuery } from '@/redux/api/categoryApi';
+import { Category } from '@/types';
+import Loading from '../Loading';
 
-  if (load) return <Loading />;
+const Categories = () => {
+  const { data: categories, isLoading } = useGetCategoriesQuery(null);
+
+  if (isLoading) return <Loading />;
 
   return (
     <>

@@ -1,25 +1,28 @@
-import { Cart, Cart as CartType } from "@/types";
-import React, { FormEvent, useEffect, useState } from "react";
-import { useCart } from "react-use-cart";
-import s from "../styles/cart.module.scss";
-import { BsTrash3 } from "react-icons/bs";
-import Image from "../../node_modules/next/image";
-import Link from "../../node_modules/next/link";
-import axios from "axios";
-import Head from "../../node_modules/next/head";
+import { FormEvent, useEffect, useState } from 'react';
+import s from '../styles/cart.module.scss';
+
+import { useCart } from 'react-use-cart';
+import { BsTrash3 } from 'react-icons/bs';
+import Image from 'next/image';
+import Link from 'next/link';
+import Head from 'next/head';
+import axios from 'axios';
+
+import { Cart, Cart as CartType } from '@/types';
 
 const Cart = () => {
   const { items, isEmpty, updateItemQuantity, emptyCart } = useCart();
   const [isClient, setIsClient] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [sms, setSms] = useState("Пусто");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [sms, setSms] = useState('Пусто');
 
   let total = 0;
 
   const postTelegram = (e: FormEvent) => {
     e.preventDefault();
+
     axios
       .post(
         `https://api.telegram.org/bot6831109574:AAGDzjb-VFistLWtpNdGTy3X5UyWfLF0jn8/sendMessage?chat_id=-4048096582&text=${encodeURIComponent(
@@ -38,7 +41,7 @@ ${items
       ${item?.quantity} штук = ${item?.price.toLocaleString()} сум
     `;
   })
-  .join("")}        
+  .join('')}        
     <b>К оплате:</b> ${total.toLocaleString()} сум`
         )}&parse_mode=html`
       )
@@ -54,16 +57,16 @@ ${items
 
   return (
     <>
-    <Head>
-    <title>X-net | Телекоммуникационное обородувание</title>
-    </Head>
+      <Head>
+        <title>X-net | Телекоммуникационное обородувание</title>
+      </Head>
       {isClient && isEmpty ? (
         <>
           <div className={s.empty_cart_main}>
             <div className={s.empty_cart}>
-              <Image src="/cart.png" alt="ПУСТО" fill />
+              <Image src='/cart.png' alt='ПУСТО' fill />
               <h2>В вашей корзине пока пусто</h2>
-              <Link href="/products">
+              <Link href='/products'>
                 <button>Вернуться в меню</button>
               </Link>
             </div>
@@ -93,7 +96,7 @@ ${items
                     ) : (
                       <h4>
                         {el?.name.slice(0, 65)}
-                        {"..."}
+                        {'...'}
                       </h4>
                     )}
                     <p>-</p>
@@ -133,21 +136,21 @@ ${items
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                type="text"
+                type='text'
                 required
               />
               <p>Ваш e-mail</p>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                type="email"
+                type='email'
                 required
               />
               <p>Ваш номер телефона</p>
               <input
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                type="number"
+                type='number'
                 required
               />
               <p>Ваше сообщение (не обязательно)</p>
@@ -157,7 +160,7 @@ ${items
               ></textarea>
               <br />
               <div className={s.go_btn}>
-                <button type="submit">Оформить заказ</button>
+                <button type='submit'>Оформить заказ</button>
               </div>
             </form>
           </div>

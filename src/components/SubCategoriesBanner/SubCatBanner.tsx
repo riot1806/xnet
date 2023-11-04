@@ -1,36 +1,24 @@
-import { API_KEY } from "@/api/Api";
-import React, { useEffect, useState } from "react";
-import axios from "../../../node_modules/axios/index";
-import s from "../SubCategoriesBanner/styles.module.scss";
-import { Category, SubCategory } from "@/types";
-import { useRouter } from "../../../node_modules/next/router";
-import Loading from "../Loading";
-import Image from "../../../node_modules/next/image";
-import Link from "../../../node_modules/next/link";
+import s from '../SubCategoriesBanner/styles.module.scss';
+
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { useGetCategoriesQuery } from '@/redux/api/categoryApi';
+import { Category, SubCategory } from '@/types';
+import Loading from '../Loading';
 
 const SubCatBanner = () => {
+  const { data: category, isLoading } = useGetCategoriesQuery(null);
   const router = useRouter();
-  const [category, setCategory] = useState<Category[]>([]);
   const catId = router.query;
-  const [load, setLoad] = useState(true);
 
-  useEffect(() => {
-    axios
-      .get<Category[]>(`${API_KEY}/categories/`)
-      .then((res) => {
-        setCategory(res.data);
-        setLoad(false);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }, []);
-
-  if (load) return <Loading />;
+  if (isLoading) return <Loading />;
 
   const categoryFind = category?.find((el: Category) => {
     return el?.id == +catId?.id!;
   });
+
   return (
     <div className={s.sub_cat_banner_main}>
       <div className={s.container}>
@@ -43,9 +31,9 @@ const SubCatBanner = () => {
                 key={el?.id}
               >
                 {el?.image === null ? (
-                  <Image fill src="/sub_cat.webp" alt="" />
+                  <Image fill src='/sub_cat.webp' alt='' />
                 ) : (
-                  <Image fill src={el?.image} alt="" />
+                  <Image fill src={el?.image} alt='' />
                 )}
                 <p>{el?.name}</p>
               </Link>

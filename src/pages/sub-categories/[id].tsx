@@ -1,33 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { Category, Product, SubCategory } from "@/types";
-import Loading from "@/components/Loading";
-import { API_KEY } from "@/api/Api";
-import axios from "../../../node_modules/axios/index";
-import s from "../../styles/products.module.scss";
-import Link from "../../../node_modules/next/link";
-import Head from "../../../node_modules/next/head";
+import { useState } from 'react';
+import s from '../../styles/products.module.scss';
+
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Head from 'next/head';
+
+import { useGetCategoriesQuery } from '@/redux/api/categoryApi';
+import { Category, Product, SubCategory } from '@/types';
+import Loading from '@/components/Loading';
 
 const SingleSubCategory = () => {
+  const { data: category, isLoading } = useGetCategoriesQuery(null);
   const router = useRouter();
-  const [category, setCategory] = useState<Category[]>([]);
   const catId = router.query;
-  const [load, setLoad] = useState(true);
   const [more2, setMore2] = useState(20);
 
-  useEffect(() => {
-    axios
-      .get<Category[]>(`${API_KEY}/categories/`)
-      .then((res) => {
-        setCategory(res.data);
-        setLoad(false);
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }, []);
-
-  if (load) return <Loading />;
+  if (isLoading) return <Loading />;
 
   const subCatFind = category?.map((cat: Category) => {
     return cat.sub_categories?.find((sub: SubCategory) => {
@@ -35,7 +23,7 @@ const SingleSubCategory = () => {
     });
   });
 
-  const resultFind: any = subCatFind.find((el: any) => el?.id == catId.id);
+  const resultFind: any = subCatFind?.find((el: any) => el?.id == catId.id);
 
   return (
     <>
@@ -63,7 +51,7 @@ const SingleSubCategory = () => {
                     ) : (
                       <h4>
                         {el?.name.slice(0, 45)}
-                        {"..."}
+                        {'...'}
                       </h4>
                     )}
                     {el?.description.length <= 85 ? (
@@ -71,7 +59,7 @@ const SingleSubCategory = () => {
                     ) : (
                       <p>
                         {el?.description.slice(0, 85)}
-                        {"..."}
+                        {'...'}
                       </p>
                     )}
                     <span>
@@ -87,7 +75,7 @@ const SingleSubCategory = () => {
                 <button
                   style={{
                     display:
-                      more2 >= resultFind?.products?.length ? "none" : "block",
+                      more2 >= resultFind?.products?.length ? 'none' : 'block',
                   }}
                   onClick={() => setMore2((prev) => prev + 8)}
                 >
@@ -96,7 +84,7 @@ const SingleSubCategory = () => {
               </div>
             </>
           ) : (
-            <h2 className="loading">Товары не найдены</h2>
+            <h2 className='loading'>Товары не найдены</h2>
           )}
         </div>
       </div>
