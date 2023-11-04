@@ -1,14 +1,14 @@
-import s from "../products/styles.module.scss";
+import s from '../products/styles.module.scss';
 
-import { useRouter } from "next/router";
-import { useCart } from "react-use-cart";
-import { BsDot } from "react-icons/bs";
-import { Image } from "antd";
-import Head from "next/head";
+import { useRouter } from 'next/router';
+import { useCart } from 'react-use-cart';
+import { BsDot } from 'react-icons/bs';
+import { Image } from 'antd';
+import Head from 'next/head';
 
-import { useGetProductsQuery } from "@/redux/api/productApi";
-import { Characteristics, Product } from "@/types";
-import Loading from "@/components/Loading";
+import { useGetProductsQuery } from '@/redux/api/productApi';
+import { Characteristics, Product } from '@/types';
+import Loading from '@/components/Loading';
 
 const SingleProduct = () => {
   const { addItem, getItem, removeItem } = useCart();
@@ -26,8 +26,10 @@ const SingleProduct = () => {
     <>
       <Head>
         <title>X-NET | {queryFind?.name}</title>
-        <meta name="description" content={queryFind?.description} />
-        <link rel="icon" href={queryFind?.image} />
+        <meta name='description' content={queryFind?.description} />
+        <meta property='og:image' content={queryFind?.image} />
+        <meta property='og:image:width' content='200px' />
+        <meta property='og:image:height' content='200px' />
       </Head>
       <div className={s.single_product_page}>
         <div className={s.container}>
