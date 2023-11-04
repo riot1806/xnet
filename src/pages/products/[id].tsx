@@ -28,8 +28,8 @@ const SingleProduct = () => {
         <title>X-NET | {queryFind?.name}</title>
         <meta name='description' content={queryFind?.description} />
         <meta property='og:image' content={queryFind?.image} />
-        <meta property='og:image:width' content='200px' />
-        <meta property='og:image:height' content='200px' />
+        <meta property='og:image:width' content='200' />
+        <meta property='og:image:height' content='200' />
       </Head>
       <div className={s.single_product_page}>
         <div className={s.container}>
