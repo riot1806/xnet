@@ -38,7 +38,6 @@ const SingleCategory = () => {
             <>
               <div className={s.products_parent}>
                 {categoryFind?.products?.slice(0, more1).map((el: Product) => (
-                {categoryFind?.products?.slice(0, more1).map((el: Product) => (
                   <Link
                     href={`/products/${el?.id}`}
                     className={s.products_card}
