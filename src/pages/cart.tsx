@@ -58,7 +58,7 @@ ${items
   return (
     <>
       <Head>
-        <title>X-net | Телекоммуникационное обородувание</title>
+        <title>X-NET | Корзина</title>
       </Head>
       {isClient && isEmpty ? (
         <>

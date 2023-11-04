@@ -1,14 +1,14 @@
-import s from '../products/styles.module.scss';
+import s from "../products/styles.module.scss";
 
-import { useRouter } from 'next/router';
-import { useCart } from 'react-use-cart';
-import { BsDot } from 'react-icons/bs';
-import { Image } from 'antd';
-import Head from 'next/head';
+import { useRouter } from "next/router";
+import { useCart } from "react-use-cart";
+import { BsDot } from "react-icons/bs";
+import { Image } from "antd";
+import Head from "next/head";
 
-import { useGetProductsQuery } from '@/redux/api/productApi';
-import { Characteristics } from '@/types';
-import Loading from '@/components/Loading';
+import { useGetProductsQuery } from "@/redux/api/productApi";
+import { Characteristics, Product } from "@/types";
+import Loading from "@/components/Loading";
 
 const SingleProduct = () => {
   const { addItem, getItem, removeItem } = useCart();
@@ -18,14 +18,16 @@ const SingleProduct = () => {
 
   if (isLoading) return <Loading />;
 
-  const queryFind = products?.find((el) => {
+  const queryFind = products?.find((el: Product) => {
     return el?.id == +prodId?.id!;
   });
 
   return (
     <>
       <Head>
-        <title>X-net | Телекоммуникационное обородувание</title>
+        <title>X-NET | {queryFind?.name}</title>
+        <meta name="description" content={queryFind?.description} />
+        <link rel="icon" href={queryFind?.image} />
       </Head>
       <div className={s.single_product_page}>
         <div className={s.container}>

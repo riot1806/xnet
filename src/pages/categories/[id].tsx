@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import s from '../../styles/products.module.scss';
+import { useState } from "react";
+import s from "../../styles/products.module.scss";
 
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import Head from 'next/head';
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Head from "next/head";
 
-import { useGetCategoriesQuery } from '@/redux/api/categoryApi';
-import { Category, Product } from '@/types';
-import Loading from '@/components/Loading';
-import SubCatBanner from '@/components/SubCategoriesBanner/SubCatBanner';
+import { useGetCategoriesQuery } from "@/redux/api/categoryApi";
+import { Category, Product } from "@/types";
+import Loading from "@/components/Loading";
+import SubCatBanner from "@/components/SubCategoriesBanner/SubCatBanner";
 
 const SingleCategory = () => {
   const { data: category, isLoading } = useGetCategoriesQuery(null);
@@ -25,7 +25,7 @@ const SingleCategory = () => {
   return (
     <>
       <Head>
-        <title>X-net | Телекоммуникационное обородувание</title>
+        <title>X-NET | {categoryFind?.name} </title>
       </Head>
       <div className={s.products_page_main}>
         <SubCatBanner />
@@ -44,8 +44,8 @@ const SingleCategory = () => {
                     key={el?.id}
                   >
                     {el?.is_new ? (
-                  <button className={s.new_prod_btn}>NEW</button>
-                ) : null}
+                      <button className={s.new_prod_btn}>NEW</button>
+                    ) : null}
                     {el?.is_used ? (
                       <button className={s.used_btn}>USED</button>
                     ) : null}
@@ -55,7 +55,7 @@ const SingleCategory = () => {
                     ) : (
                       <h4>
                         {el?.name.slice(0, 45)}
-                        {'...'}
+                        {"..."}
                       </h4>
                     )}
                     {el?.description.length <= 85 ? (
@@ -63,7 +63,7 @@ const SingleCategory = () => {
                     ) : (
                       <p>
                         {el?.description.slice(0, 85)}
-                        {'...'}
+                        {"..."}
                       </p>
                     )}
                     <span>
@@ -80,8 +80,8 @@ const SingleCategory = () => {
                   style={{
                     display:
                       more1 >= categoryFind?.products?.length
-                        ? 'none'
-                        : 'block',
+                        ? "none"
+                        : "block",
                   }}
                   onClick={() => setMore1((prev) => prev + 8)}
                 >
@@ -90,7 +90,7 @@ const SingleCategory = () => {
               </div>
             </>
           ) : (
-            <h2 className='loading'>Товары не найдены</h2>
+            <h2 className="loading">Товары не найдены</h2>
           )}
         </div>
       </div>

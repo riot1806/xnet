@@ -28,7 +28,7 @@ const SingleSubCategory = () => {
   return (
     <>
       <Head>
-        <title>X-net | Телекоммуникационное обородувание</title>
+        <title>X-NET | {resultFind?.name}</title>
       </Head>
       <div className={s.products_page_main}>
         <div className={s.container}>

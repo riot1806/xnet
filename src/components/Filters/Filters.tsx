@@ -1,29 +1,30 @@
-import { useEffect, useState } from 'react';
-import s from '../Filters/styles.module.scss';
+import { useEffect, useState } from "react";
+import s from "../Filters/styles.module.scss";
 
-import { CgMenuGridO } from 'react-icons/cg';
-import { VscServerProcess } from 'react-icons/vsc';
-import { useRouter } from 'next/router';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import Link from 'next/link';
+import { CgMenuGridO } from "react-icons/cg";
+import {GiComputerFan} from 'react-icons/gi'
+import { VscServerProcess } from "react-icons/vsc";
+import { useRouter } from "next/router";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
-import { useGetCategoriesQuery } from '@/redux/api/categoryApi';
-import { useGetProductsQuery } from '@/redux/api/productApi';
-import Search from '../Search/Search';
+import { useGetCategoriesQuery } from "@/redux/api/categoryApi";
+import { useGetProductsQuery } from "@/redux/api/productApi";
+import Search from "../Search/Search";
 
 const Filters = () => {
   const { data: categories } = useGetCategoriesQuery(null);
   const { data: products } = useGetProductsQuery(null);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
 
   if (search.length)
-    document.body.addEventListener('click', () => {
-      setSearch('');
+    document.body.addEventListener("click", () => {
+      setSearch("");
     });
 
   useEffect(() => {
@@ -31,10 +32,10 @@ const Filters = () => {
       setExpanded(false);
     };
 
-    router.events.on('routeChangeStart', handleRouteChange);
+    router.events.on("routeChangeStart", handleRouteChange);
 
     return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
+      router.events.off("routeChangeStart", handleRouteChange);
     };
   }, []);
 
@@ -56,13 +57,19 @@ const Filters = () => {
             >
               <AccordionSummary
                 expandIcon={<CgMenuGridO className={s.filter_icon} />}
-                aria-controls='panel1a-content'
-                id='panel1a-header'
+                aria-controls="panel1a-content"
+                id="panel1a-header"
               >
                 <Typography className={s.filters_title}>
                   Каталог товаров
                 </Typography>
               </AccordionSummary>
+              <AccordionDetails className={s.new_postuplenie}>
+                <Link href={"/new-products"} className={s.filters_twise}>
+                  <GiComputerFan />
+                  <h4>Новинки</h4>
+                </Link>
+              </AccordionDetails>
               <AccordionDetails>
                 {categories?.map(
                   (el) =>
@@ -84,11 +91,11 @@ const Filters = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className={s.filters_input}
-                type='text'
-                placeholder='Название товара...'
+                type="text"
+                placeholder="Название товара..."
               />
               <div
-                style={{ display: search.length ? 'block' : 'none' }}
+                style={{ display: search.length ? "block" : "none" }}
                 className={s.filters_result_box}
               >
                 <ul>
@@ -97,13 +104,13 @@ const Filters = () => {
                       return (
                         <li key={el?.id}>
                           <Link href={`/products/${el?.id}`}>
-                            <img src={el?.image} alt='' />
+                            <img src={el?.image} alt="" />
                             {el?.name.length <= 58 ? (
                               <p>{el?.name}</p>
                             ) : (
                               <p>
                                 {el?.name.slice(0, 58)}
-                                {'...'}
+                                {"..."}
                               </p>
                             )}
                             <p>{el?.price.toLocaleString()} сум</p>

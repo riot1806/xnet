@@ -1,16 +1,17 @@
-import s from '../styles/home.module.scss';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import s from "../styles/home.module.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import Head from 'next/head';
-import Slider from 'react-slick';
+import Image from "next/image";
+import Link from "next/link";
+import Head from "next/head";
+import Slider from "react-slick";
 
-import { useGetBannersQuery } from '@/redux/api/bannerApi';
-import AboutUs from '@/components/AboutUs/AboutUs';
-import Categories from '@/components/Categories/Categories';
-import Loading from '@/components/Loading';
+import { useGetBannersQuery } from "@/redux/api/bannerApi";
+import AboutUs from "@/components/AboutUs/AboutUs";
+import Categories from "@/components/Categories/Categories";
+import Loading from "@/components/Loading";
+import NewProducts from "@/components/NewProducts/NewProducts";
 // import CatalogsBanner from "@/components/CatalogsBanner/CatalogsBanner";
 
 const settings = {
@@ -23,7 +24,7 @@ const settings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 6000,
-  cssEase: 'linear',
+  cssEase: "linear",
 };
 
 export default function Home() {
@@ -38,7 +39,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>X-net | Телекоммуникационное обородувание</title>
+        <title>X-NET | Телекоммуникационное обородувание</title>
       </Head>
       <div className={s.home_header}>
         <div className={s.container}>
@@ -47,7 +48,7 @@ export default function Home() {
             {isCatalogBanner?.map((el) => (
               <div key={el?.id} className={s.home_banner}>
                 <Link href={`/categories/${el?.category}`}>
-                  <Image fill src={el?.image} alt='banner' />
+                  <Image fill src={el?.image} alt="banner" />
                 </Link>
               </div>
             ))}
@@ -55,6 +56,7 @@ export default function Home() {
         </div>
       </div>
       <Categories />
+      <NewProducts />
       {/* <CatalogsBanner /> */}
       <AboutUs />
     </>

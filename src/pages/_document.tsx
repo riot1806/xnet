@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>X-net | Телекоммуникационное обородувание</title>
+        <title>X-NET | Телекоммуникационное обородувание</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
