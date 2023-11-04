@@ -1,11 +1,11 @@
-import { useGetProductsQuery } from "@/redux/api/productApi";
-import Loading from "../Loading";
-import s from "../NewProducts/styles.module.scss";
-import Slider from "react-slick";
-import { Product } from "@/types";
-import Image from "../../../node_modules/next/image";
-import Link from "../../../node_modules/next/link";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { useGetProductsQuery } from '@/redux/api/productApi';
+import Loading from '../Loading';
+import s from '../NewProducts/styles.module.scss';
+import Slider from 'react-slick';
+import { Product } from '@/types';
+import Image from '../../../node_modules/next/image';
+import Link from '../../../node_modules/next/link';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 const NewProducts = () => {
   const { data: products, isLoading } = useGetProductsQuery(null);
@@ -21,6 +21,7 @@ const NewProducts = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
+    arrows: false,
     nextArrow: <IoIosArrowForward fill />,
     prevArrow: <IoIosArrowBack fill />,
     responsive: [
@@ -42,7 +43,7 @@ const NewProducts = () => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 320,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -50,6 +51,7 @@ const NewProducts = () => {
       },
     ],
   };
+
   return (
     <>
       <div className={s.new_products}>
@@ -68,22 +70,24 @@ const NewProducts = () => {
                       <button className={s.new_prod_btn}>Новинка</button>
                     ) : null}
                     <Image fill alt={el?.name} src={el?.image} />
-                    {el?.name?.length <= 45 ? (
+                    {/* {el?.name?.length <= 45 ? (
                       <h4>{el?.name}</h4>
                     ) : (
                       <h4>
                         {el?.name.slice(0, 45)}
-                        {"..."}
+                        {'...'}
                       </h4>
-                    )}
-                    {el?.description.length <= 85 ? (
+                    )} */}
+                    <h4>{el?.name}</h4>
+                    {/* {el?.description.length <= 85 ? (
                       <p>{el?.description}</p>
                     ) : (
                       <p>
                         {el?.description.slice(0, 85)}
-                        {"..."}
+                        {'...'}
                       </p>
-                    )}
+                    )} */}
+                    <p>{el?.description}</p>
                     <span>
                       <b>{el?.price.toLocaleString()} сум</b>
                     </span>
