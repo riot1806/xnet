@@ -11,22 +11,41 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    h1{
+    h1 {
       font-size: 28px;
     }
-    p{
+    p {
       color: rgb(186, 184, 184);
       font-size: 18px;
       padding-top: 8px;
     }
   }
 }
+.used_btn {
+  width: 70px !important;
+  height: 25px !important;
+  background-color: #3498db !important;
+  color: #fff !important;
+  border: 2px solid #3498db !important;
+  border-radius: 6px;
+  float: right;
+  cursor: pointer;
+}
+.new_prod_btn {
+  width: 80px !important;
+  height: 27px !important;
+  background-color: #21DF07 !important;
+  color: #fff !important;
+  border: 2px solid #21DF07 !important;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-.more_btn{
+.more_btn {
   display: flex;
   justify-content: center;
   padding: 40px 0;
-  button{
+  button {
     width: 150px;
     height: 40px;
     border-radius: 10px;
@@ -35,7 +54,7 @@
     border: 2px solid #11111f;
     cursor: pointer;
     font-size: 16px;
-    &:active{
+    &:active {
       background-color: #fff;
       color: #11111f;
     }
@@ -150,10 +169,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    h1{
+    h1 {
       font-size: 24px;
     }
-    p{
+    p {
       color: rgb(186, 184, 184);
       font-size: 16px;
       padding-top: 8px;
@@ -215,14 +234,31 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    h1{
+    h1 {
       font-size: 22px !important;
     }
-    p{
+    p {
       color: rgb(186, 184, 184);
       font-size: 14px !important;
       padding-top: 8px;
     }
+  }
+  .used_btn {
+    width: 60px !important;
+    height: 20px !important;
+    background-color: #3498db !important;
+    color: #fff !important;
+    border: 2px solid #3498db !important;
+    border-radius: 6px;
+    float: right;
+  }
+  .new_prod_btn {
+    width: 70px !important;
+    height: 20px !important;
+    background-color: #21DF07 !important;
+    color: #fff !important;
+    border: 2px solid #21DF07 !important;
+    border-radius: 6px;
   }
 }
 
@@ -276,7 +312,7 @@
       }
     }
   }
-  .products_page_title{
+  .products_page_title {
     font-size: 17px !important;
   }
 }

@@ -37,6 +37,9 @@ const SingleProduct = () => {
               </Image.PreviewGroup>
             </div>
             <div className={s.single_product_main_right}>
+              {queryFind?.is_used ? (
+                <button className={s.used_btn}>USED</button>
+              ) : null}
               <span>
                 <BsDot className={s.dot} /> В наличии
               </span>

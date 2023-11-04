@@ -38,11 +38,18 @@ const SingleCategory = () => {
             <>
               <div className={s.products_parent}>
                 {categoryFind?.products?.slice(0, more1).map((el: Product) => (
+                {categoryFind?.products?.slice(0, more1).map((el: Product) => (
                   <Link
                     href={`/products/${el?.id}`}
                     className={s.products_card}
                     key={el?.id}
                   >
+                    {el?.is_new ? (
+                  <button className={s.new_prod_btn}>NEW</button>
+                ) : null}
+                    {el?.is_used ? (
+                      <button className={s.used_btn}>USED</button>
+                    ) : null}
                     <img src={el?.image} alt={el?.name} />
                     {el?.name?.length <= 45 ? (
                       <h4>{el?.name}</h4>
