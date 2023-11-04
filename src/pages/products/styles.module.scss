@@ -126,6 +126,15 @@
   }
 }
 
+.used_btn {
+  width: 100px !important;
+  height: 30px !important;
+  background-color: #3498db !important;
+  color: #fff !important;
+  border: 2px solid #3498db !important;
+  margin-bottom: 10px;
+}
+
 @media all and (max-width: 952px) {
   .single_product_name {
     font-size: 18px !important;
@@ -217,7 +226,7 @@
         padding: 5px;
         min-width: 400px !important;
       }
-      .characteristics_key_value{
+      .characteristics_key_value {
         font-size: 13px;
       }
     }
@@ -347,7 +356,7 @@
         padding: 5px 0;
         min-width: 120px !important;
       }
-      .characteristics_key_value{
+      .characteristics_key_value {
         font-size: 12px;
       }
     }
@@ -387,7 +396,7 @@
         padding: 5px 0;
         min-width: 80px !important;
       }
-      .characteristics_key_value{
+      .characteristics_key_value {
         font-size: 11px;
       }
     }

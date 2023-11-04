@@ -51,6 +51,9 @@ const SingleProduct: FC = () => {
               </Image.PreviewGroup>
             </div>
             <div className={s.single_product_main_right}>
+              {queryFind?.is_used ? (
+                <button className={s.used_btn}>USED</button>
+              ) : null}
               <span>
                 <BsDot className={s.dot} /> В наличии
               </span>
@@ -82,7 +85,9 @@ const SingleProduct: FC = () => {
                 return (
                   <div className={s.characteristics_twise} key={el?.id}>
                     <span className={s.characteristics_key}>{el?.key} :</span>
-                    <span className={s.characteristics_key_value}>{el?.value}</span>
+                    <span className={s.characteristics_key_value}>
+                      {el?.value}
+                    </span>
                   </div>
                 );
               })

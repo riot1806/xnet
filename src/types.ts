@@ -32,6 +32,8 @@ export type Product = {
   category: {};
   sub_categories: Category[];
   characteristics: [];
+  is_used:boolean;
+  is_new:boolean;
 };
 
 export type Cart = {

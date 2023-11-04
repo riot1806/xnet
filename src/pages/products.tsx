@@ -29,9 +29,9 @@ const Products = () => {
 
   return (
     <>
-    <Head>
-    <title>X-net | Телекоммуникационное обородувание</title>
-    </Head>
+      <Head>
+        <title>X-net | Телекоммуникационное обородувание</title>
+      </Head>
       <div className={s.products_page_main}>
         <div className={s.container}>
           <span className={s.products_page_title}>
@@ -45,6 +45,12 @@ const Products = () => {
                 className={s.products_card}
                 key={el?.id}
               >
+                {el?.is_new ? (
+                  <button className={s.new_prod_btn}>Новинка</button>
+                ) : null} 
+                {el?.is_used ? (
+                  <button className={s.used_btn}>USED</button>
+                ) : null}
                 <img src={el?.image} alt={el?.name} />
                 {el?.name?.length <= 45 ? (
                   <h4>{el?.name}</h4>
