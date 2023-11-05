@@ -21,9 +21,9 @@
     padding: 20px;
     background-repeat: no-repeat;
     background-position: right;
-    background-color: #2b2b42c7;
+    // background-color: #2b2b42c7;
     background-size: contain;
-    color: #fff;
+    // color: #fff;
     -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -46,6 +46,7 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 5px;
+  color: #fff;
   a {
     transition: 0.2s;
     padding: 3px 6px;
@@ -88,9 +89,9 @@
       padding: 10px;
       background-repeat: no-repeat;
       background-position: right;
-      background-color: #2b2b42c7;
+      // background-color: #2b2b42c7;
       background-size: contain;
-      color: #fff;
+      // color: #fff;
       -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
       -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
       box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
