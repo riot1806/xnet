@@ -1,17 +1,17 @@
-'use client';
-import React, { FC, useEffect } from 'react';
-import s from './styles.module.scss';
-import Link from 'next/link';
-import Image from 'next/image';
-import { HiShoppingCart } from 'react-icons/hi';
-import { HiMenu } from 'react-icons/hi';
-import Drawer from 'react-modern-drawer';
-import 'react-modern-drawer/dist/index.css';
-import { useCart } from 'react-use-cart';
-import { useRouter } from 'next/router';
-import { BsFillTelephoneFill } from 'react-icons/bs';
-import { BiLogoTelegram } from 'react-icons/bi';
-import { HiMail } from 'react-icons/hi';
+"use client";
+import React, { FC, useEffect } from "react";
+import s from "./styles.module.scss";
+import Link from "next/link";
+import Image from "next/image";
+import { HiShoppingCart } from "react-icons/hi";
+import { HiMenu } from "react-icons/hi";
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
+import { useCart } from "react-use-cart";
+import { useRouter } from "next/router";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { BiLogoTelegram } from "react-icons/bi";
+import { HiMail } from "react-icons/hi";
 
 const Nav: FC = () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ const Nav: FC = () => {
             <div className={s.top__nav__parent}>
               <div className={s.mobile__drawer}>
                 <HiMenu
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   className={s.mobile__toggle}
                   onClick={toggleDrawer}
                 />
@@ -41,28 +41,28 @@ const Nav: FC = () => {
                 <Drawer
                   open={isOpen}
                   onClose={toggleDrawer}
-                  direction='left'
-                  size={'80%'}
-                  className='bla bla bla'
+                  direction="left"
+                  size={"80%"}
+                  className="bla bla bla"
                 >
                   <div className={s.mobil_nav_parent}>
-                    <Link href='/'>
+                    <Link href="/">
                       <Image
                         className={s.logo_mobile}
                         fill
-                        src='/x-logo.png'
-                        alt='Logo'
+                        src="/x-logo.png"
+                        alt="Logo"
                       />
                     </Link>
                     <div className={s.mobile_routes}>
-                      <Link href={'/'}>Главная Страница</Link>
-                      <Link href={'/products'}>Товары</Link>
+                      <Link href={"/"}>Главная Страница</Link>
+                      <Link href={"/products"}>Товары</Link>
                       <hr />
                       <span>
                         <a
                           className={s.tg_link}
-                          target='_blank'
-                          href='https://t.me/xnecom'
+                          target="_blank"
+                          href="https://t.me/xnecom"
                         >
                           <BiLogoTelegram />
                           <p>X NET</p>
@@ -71,17 +71,17 @@ const Nav: FC = () => {
                       <span>
                         <a
                           className={s.tg_link}
-                          target='_blank'
-                          href='mailto:info@xnet.uz'
+                          target="_blank"
+                          href="mailto: xnet@x-net.uz"
                         >
                           <HiMail />
-                          <p>info@xnet.uz</p>
+                          <p>xnet@x-net.uz</p>
                         </a>
                       </span>
                       <span>
                         <a
-                          target='_blank'
-                          href='tel: +998971989889'
+                          target="_blank"
+                          href="tel: +998971989889"
                           className={s.twink}
                         >
                           <BsFillTelephoneFill className={s.twink_phone} />
@@ -89,8 +89,8 @@ const Nav: FC = () => {
                         </a>
                         <br />
                         <a
-                          target='_blank'
-                          href='tel: +998971988998'
+                          target="_blank"
+                          href="tel: +998971988998"
                           className={s.twink}
                         >
                           <BsFillTelephoneFill className={s.twink_phone} />
@@ -101,21 +101,21 @@ const Nav: FC = () => {
                   </div>
                 </Drawer>
               </div>
-              <Link href='/'>
-                <Image className={s.logo} fill src='/x-logo.png' alt='Logo' />
+              <Link href="/">
+                <Image className={s.logo} fill src="/x-logo.png" alt="Logo" />
               </Link>
               <div className={s.nav__center}>
-                <Link className={s.nav_center_link} href={'/'}>
+                <Link className={s.nav_center_link} href={"/"}>
                   Главная Страница
                 </Link>
-                <Link className={s.nav_center_link} href={'/products'}>
+                <Link className={s.nav_center_link} href={"/products"}>
                   Товары
                 </Link>
                 <span>
                   <a
                     className={s.tg_link}
-                    target='_blank'
-                    href='https://t.me/xnecom'
+                    target="_blank"
+                    href="https://t.me/xnecom"
                   >
                     <BiLogoTelegram />
                     <p>X NET</p>
@@ -124,25 +124,25 @@ const Nav: FC = () => {
                 <span>
                   <a
                     className={s.tg_link}
-                    target='_blank'
-                    href='mailto:info@xnet.uz'
+                    target="_blank"
+                    href="mailto: xnet@x-net.uz"
                   >
                     <HiMail />
-                    <p>info@xnet.uz</p>
+                    <p>xnet@x-net.uz</p>
                   </a>
                 </span>
                 <span>
                   <a
-                    target='_blank'
-                    href='tel: +998331989889'
+                    target="_blank"
+                    href="tel: +998331989889"
                     className={s.twink}
                   >
                     <BsFillTelephoneFill className={s.twink_phone} />
                     <p>+998 (33) 198-98-89 Хусан</p>
                   </a>
                   <a
-                    target='_blank'
-                    href='tel: +998331898998'
+                    target="_blank"
+                    href="tel: +998331898998"
                     className={s.twink}
                   >
                     <BsFillTelephoneFill className={s.twink_phone} />
@@ -150,7 +150,7 @@ const Nav: FC = () => {
                   </a>
                 </span>
               </div>
-              <Link href={'/cart'} className={s.nav__right}>
+              <Link href={"/cart"} className={s.nav__right}>
                 <HiShoppingCart className={s.shop__cart} />
                 <span suppressHydrationWarning>{items.length}</span>
               </Link>
