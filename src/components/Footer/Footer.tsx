@@ -65,8 +65,8 @@ const Footer: FC = () => {
             </p>
             <p>
             Электронная почта:{" "}
-              <a style={{ color: "#0C96F3" }} href="mailto: xnet@x-net.uz">
-              xnet@x-net.uz
+              <a style={{ color: "#0C96F3" }} href="mailto: info@x-net.uz">
+              info@x-net.uz
               </a>
             </p>
           </div>

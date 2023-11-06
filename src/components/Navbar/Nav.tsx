@@ -72,10 +72,10 @@ const Nav: FC = () => {
                         <a
                           className={s.tg_link}
                           target="_blank"
-                          href="mailto: xnet@x-net.uz"
+                          href="mailto:info@x-net.uz"
                         >
                           <HiMail />
-                          <p>xnet@x-net.uz</p>
+                          <p>info@x-net.uz</p>
                         </a>
                       </span>
                       <span>
@@ -125,10 +125,10 @@ const Nav: FC = () => {
                   <a
                     className={s.tg_link}
                     target="_blank"
-                    href="mailto: xnet@x-net.uz"
+                    href="mailto: info@x-net.uz"
                   >
                     <HiMail />
-                    <p>xnet@x-net.uz</p>
+                    <p>info@x-net.uz</p>
                   </a>
                 </span>
                 <span>
