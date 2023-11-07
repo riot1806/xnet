@@ -34,12 +34,19 @@ const SingleCategory = () => {
             <h1>{categoryFind?.name}.</h1>
             <p>{categoryFind?.products.length} товаров</p>
           </span>
+          <span className={s.page_routes}>
+            <Link href="/">Главная</Link>
+            <sub>/</sub>
+            <p>{categoryFind?.name}</p>
+            <sub>/</sub>
+            <p>Идентификатор: {categoryFind?.id}</p>
+          </span>
           {categoryFind?.products.length ? (
             <>
               <div className={s.products_parent}>
                 {categoryFind?.products?.slice(0, more1).map((el: Product) => (
                   <Link
-                    href={`/products/${el?.id}`}
+                    href={`/tovar/${el?.id}`}
                     className={s.products_card}
                     key={el?.id}
                   >

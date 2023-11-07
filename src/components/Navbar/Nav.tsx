@@ -56,7 +56,7 @@ const Nav: FC = () => {
                     </Link>
                     <div className={s.mobile_routes}>
                       <Link href={"/"}>Главная Страница</Link>
-                      <Link href={"/products"}>Товары</Link>
+                      <Link href={"/vse-tovari"}>Товары</Link>
                       <hr />
                       <span>
                         <a
@@ -108,7 +108,7 @@ const Nav: FC = () => {
                 <Link className={s.nav_center_link} href={"/"}>
                   Главная Страница
                 </Link>
-                <Link className={s.nav_center_link} href={"/products"}>
+                <Link className={s.nav_center_link} href={"/vse-tovari"}>
                   Товары
                 </Link>
                 <span>
@@ -150,7 +150,7 @@ const Nav: FC = () => {
                   </a>
                 </span>
               </div>
-              <Link href={"/cart"} className={s.nav__right}>
+              <Link href={"/korzina"} className={s.nav__right}>
                 <HiShoppingCart className={s.shop__cart} />
                 <span suppressHydrationWarning>{items.length}</span>
               </Link>

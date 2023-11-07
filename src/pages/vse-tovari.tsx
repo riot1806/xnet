@@ -25,10 +25,11 @@ const Products = () => {
             <h1>Все наши продукты.</h1>
             <p>{products?.length} товаров</p>
           </span>
+          <br />
           <div className={s.products_parent}>
             {products?.slice(0, more).map((el: Product) => (
               <Link
-                href={`/products/${el?.id}`}
+                href={`/tovar/${el?.id}`}
                 className={s.products_card}
                 key={el?.id}
               >

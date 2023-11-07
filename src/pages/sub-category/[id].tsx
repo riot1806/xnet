@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import s from '../../styles/products.module.scss';
+import { useState } from "react";
+import s from "../../styles/products.module.scss";
 
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import Head from 'next/head';
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Head from "next/head";
 
-import { useGetCategoriesQuery } from '@/redux/api/categoryApi';
-import { Category, Product, SubCategory } from '@/types';
-import Loading from '@/components/Loading';
+import { useGetCategoriesQuery } from "@/redux/api/categoryApi";
+import { Category, Product, SubCategory } from "@/types";
+import Loading from "@/components/Loading";
 
 const SingleSubCategory = () => {
   const { data: category, isLoading } = useGetCategoriesQuery(null);
@@ -36,12 +36,19 @@ const SingleSubCategory = () => {
             <h1>{resultFind?.name}.</h1>
             <p>{resultFind?.products.length} товаров</p>
           </span>
+          <span className={s.page_routes}>
+            <Link href="/">Главная</Link>
+            <sub>/</sub>
+            <p>{resultFind?.name}</p>
+            <sub>/</sub>
+            <p>Идентификатор: {resultFind?.id}</p>
+          </span>
           {resultFind?.products.length ? (
             <>
               <div className={s.products_parent}>
                 {resultFind?.products?.slice(0, more2).map((el: Product) => (
                   <Link
-                    href={`/products/${el?.id}`}
+                    href={`/tovar/${el?.id}`}
                     className={s.products_card}
                     key={el?.id}
                   >
@@ -57,7 +64,7 @@ const SingleSubCategory = () => {
                     ) : (
                       <h4>
                         {el?.name.slice(0, 45)}
-                        {'...'}
+                        {"..."}
                       </h4>
                     )}
                     {el?.description.length <= 85 ? (
@@ -65,7 +72,7 @@ const SingleSubCategory = () => {
                     ) : (
                       <p>
                         {el?.description.slice(0, 85)}
-                        {'...'}
+                        {"..."}
                       </p>
                     )}
                     <span>
@@ -81,7 +88,7 @@ const SingleSubCategory = () => {
                 <button
                   style={{
                     display:
-                      more2 >= resultFind?.products?.length ? 'none' : 'block',
+                      more2 >= resultFind?.products?.length ? "none" : "block",
                   }}
                   onClick={() => setMore2((prev) => prev + 8)}
                 >
@@ -90,7 +97,7 @@ const SingleSubCategory = () => {
               </div>
             </>
           ) : (
-            <h2 className='loading'>Товары не найдены</h2>
+            <h2 className="loading">Товары не найдены</h2>
           )}
         </div>
       </div>

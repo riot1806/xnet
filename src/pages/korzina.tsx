@@ -66,7 +66,7 @@ ${items
             <div className={s.empty_cart}>
               <Image src='/cart.png' alt='ПУСТО' fill />
               <h2>В вашей корзине пока пусто</h2>
-              <Link href='/products'>
+              <Link href='/vse-tovari'>
                 <button>Вернуться в меню</button>
               </Link>
             </div>

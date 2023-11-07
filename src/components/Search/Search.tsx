@@ -9,6 +9,7 @@ import Drawer from 'react-modern-drawer';
 import Link from 'next/link';
 
 import { useGetProductsQuery } from '@/redux/api/productApi';
+import { Product } from '@/types';
 
 const Search = () => {
   const { data: products } = useGetProductsQuery(null);
@@ -24,7 +25,7 @@ const Search = () => {
     setIsOpen(false);
   }, [router]);
 
-  const productSearch = products?.filter((el) => {
+  const productSearch = products?.filter((el:Product) => {
     return el?.name.toLowerCase().includes(searchMob.toLowerCase());
   });
 
@@ -71,9 +72,9 @@ const Search = () => {
           >
             <ul>
               {productSearch?.length ? (
-                productSearch?.map((el) => {
+                productSearch?.map((el:Product) => {
                   return (
-                    <Link href={`/products/${el?.id}`} key={el?.id}>
+                    <Link href={`/tovar/${el?.id}`} key={el?.id}>
                       <img src={el?.image} alt='' />
                       {el?.name.length <= 58 ? (
                         <p>{el?.name}</p>

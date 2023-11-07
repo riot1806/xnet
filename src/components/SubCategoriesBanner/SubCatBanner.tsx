@@ -26,7 +26,7 @@ const SubCatBanner = () => {
           {categoryFind?.sub_categories?.map((el: SubCategory) => {
             return (
               <Link
-                href={`/sub-categories/${el?.id}`}
+                href={`/sub-category/${el?.id}`}
                 className={s.sub_cat_banner_card}
                 key={el?.id}
               >

@@ -1,16 +1,17 @@
-import { FC } from 'react';
-import s from '../products/styles.module.scss';
+import { FC } from "react";
+import s from "../tovar/styles.module.scss";
 
-import { useRouter } from 'next/router';
-import { useCart } from 'react-use-cart';
-import { BsDot } from 'react-icons/bs';
-import { Image } from 'antd';
-import Head from 'next/head';
+import { useRouter } from "next/router";
+import { useCart } from "react-use-cart";
+import { BsDot } from "react-icons/bs";
+import { Image } from "antd";
+import Head from "next/head";
 
-import { getProducts, getRunningQueriesThunk } from '@/redux/api/productApi';
-import { wrapper } from '@/redux/store';
-import { Characteristics, Product } from '@/types';
-import Loading from '@/components/Loading';
+import { getProducts, getRunningQueriesThunk } from "@/redux/api/productApi";
+import { wrapper } from "@/redux/store";
+import { Characteristics, Product } from "@/types";
+import Loading from "@/components/Loading";
+import Link from "../../../node_modules/next/link";
 
 type SingleProductProps = {
   products: Product[];
@@ -49,12 +50,19 @@ const SingleProduct: FC<SingleProductProps> = ({ products, isLoading }) => {
     <>
       <Head>
         <title>X-NET | {queryFind?.name}</title>
-        <meta name='description' content={queryFind?.description} />
-        <meta property='og:image' content={queryFind?.image} />
+        <meta name="description" content={queryFind?.description} />
+        <meta property="og:image" content={queryFind?.image} />
       </Head>
       <div className={s.single_product_page}>
         <div className={s.container}>
           <h1 className={s.single_product_name}>{queryFind?.name}</h1>
+          <span className={s.page_routes}>
+            <Link href="/">Главная</Link>
+            <sub>/</sub>
+            <p>{queryFind?.name}</p>
+            <sub>/</sub>
+            <p>Идентификатор: {queryFind?.id}</p>
+          </span>
           <div className={s.single_product_main}>
             <div className={s.single_product_main_left}>
               <Image.PreviewGroup>

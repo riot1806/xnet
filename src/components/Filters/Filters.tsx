@@ -65,7 +65,7 @@ const Filters = () => {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={s.new_postuplenie}>
-                <Link href={"/new-products"} className={s.filters_twise}>
+                <Link href={"/novinki"} className={s.filters_twise}>
                   <GiComputerFan />
                   <h4>Новинки</h4>
                 </Link>
@@ -76,7 +76,7 @@ const Filters = () => {
                     !el?.parent_category && (
                       <Link
                         key={el?.id}
-                        href={`/categories/${el?.id}`}
+                        href={`/category/${el?.id}`}
                         className={s.filters_twise}
                       >
                         <VscServerProcess />
@@ -103,7 +103,7 @@ const Filters = () => {
                     productSearch?.map((el) => {
                       return (
                         <li key={el?.id}>
-                          <Link href={`/products/${el?.id}`}>
+                          <Link href={`/tovar/${el?.id}`}>
                             <img src={el?.image} alt="" />
                             {el?.name.length <= 58 ? (
                               <p>{el?.name}</p>

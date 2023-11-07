@@ -62,7 +62,7 @@ const NewProducts = () => {
               {newProducts?.map((el: Product) => {
                 return (
                   <Link
-                    href={`/products/${el?.id}`}
+                    href={`/tovar/${el?.id}`}
                     className={s.new_products_card}
                     key={el?.id}
                   >
@@ -70,23 +70,7 @@ const NewProducts = () => {
                       <button className={s.new_prod_btn}>Новинка</button>
                     ) : null}
                     <Image fill alt={el?.name} src={el?.image} />
-                    {/* {el?.name?.length <= 45 ? (
-                      <h4>{el?.name}</h4>
-                    ) : (
-                      <h4>
-                        {el?.name.slice(0, 45)}
-                        {'...'}
-                      </h4>
-                    )} */}
                     <h4>{el?.name}</h4>
-                    {/* {el?.description.length <= 85 ? (
-                      <p>{el?.description}</p>
-                    ) : (
-                      <p>
-                        {el?.description.slice(0, 85)}
-                        {'...'}
-                      </p>
-                    )} */}
                     <p>{el?.description}</p>
                     <span>
                       <b>{el?.price.toLocaleString()} сум</b>

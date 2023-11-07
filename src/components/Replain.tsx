@@ -19,7 +19,7 @@ const ReplainChat = () => {
         <Head>
             <script
                 dangerouslySetInnerHTML={{
-                    __html: `window.replainSettings = { id: '90f5a678-a4ce-4eac-a72a-f647574dc7e4' }`
+                    __html: `window.replainSettings = { id: 'c9f50649-2760-467d-9fb9-73ea363e041c' }`
                 }}
             />
         </Head>

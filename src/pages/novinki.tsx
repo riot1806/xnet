@@ -30,7 +30,7 @@ const Novinki = () => {
           <div className={s.products_parent}>
             {newProducts?.slice(0, more).map((el: Product) => (
               <Link
-                href={`/products/${el?.id}`}
+                href={`/tovar/${el?.id}`}
                 className={s.products_card}
                 key={el?.id}
               >

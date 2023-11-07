@@ -47,7 +47,7 @@ export default function Home() {
           <Slider {...settings}>
             {isCatalogBanner?.map((el) => (
               <div key={el?.id} className={s.home_banner}>
-                <Link href={`/categories/${el?.category}`}>
+                <Link href={`/category/${el?.category}`}>
                   <Image fill src={el?.image} alt="banner" />
                 </Link>
               </div>

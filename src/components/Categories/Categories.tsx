@@ -29,13 +29,13 @@ const Categories = () => {
                   >
                     <Link
                       className={s.category_name}
-                      href={`/categories/${el?.id}`}
+                      href={`/category/${el?.id}`}
                     >
                       {el?.name}
                     </Link>
                     <div className={s.sub_cat}>
                       {el?.sub_categories?.map((sub: Category) => (
-                        <Link key={sub?.id} href={`/sub-categories/${sub?.id}`}>
+                        <Link key={sub?.id} href={`/sub-category/${sub?.id}`}>
                           {sub?.name}
                         </Link>
                       ))}
