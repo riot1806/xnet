@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import s from '../products/styles.module.scss';
 
 import { useRouter } from 'next/router';
@@ -6,13 +7,35 @@ import { BsDot } from 'react-icons/bs';
 import { Image } from 'antd';
 import Head from 'next/head';
 
-import { useGetProductsQuery } from '@/redux/api/productApi';
+import { getProducts, getRunningQueriesThunk } from '@/redux/api/productApi';
+import { wrapper } from '@/redux/store';
 import { Characteristics, Product } from '@/types';
 import Loading from '@/components/Loading';
 
-const SingleProduct = () => {
+type SingleProductProps = {
+  products: Product[];
+  isLoading: boolean;
+};
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async () => {
+    const { data, isLoading } = await store.dispatch(
+      getProducts.initiate(null)
+    );
+
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
+
+    return {
+      props: {
+        products: data,
+        isLoading,
+      },
+    };
+  }
+);
+
+const SingleProduct: FC<SingleProductProps> = ({ products, isLoading }) => {
   const { addItem, getItem, removeItem } = useCart();
-  const { data: products, isLoading } = useGetProductsQuery(null);
   const router = useRouter();
   const prodId = router.query;
 
@@ -28,8 +51,6 @@ const SingleProduct = () => {
         <title>X-NET | {queryFind?.name}</title>
         <meta name='description' content={queryFind?.description} />
         <meta property='og:image' content={queryFind?.image} />
-        <meta property='og:image:width' content='200' />
-        <meta property='og:image:height' content='200' />
       </Head>
       <div className={s.single_product_page}>
         <div className={s.container}>

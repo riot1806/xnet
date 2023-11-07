@@ -10,4 +10,9 @@ export const productApi = rootApi.injectEndpoints({
   }),
 });
 
-export const { useGetProductsQuery } = productApi;
+export const {
+  useGetProductsQuery,
+  util: { getRunningQueriesThunk },
+} = productApi;
+
+export const { getProducts } = productApi.endpoints;

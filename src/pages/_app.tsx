@@ -5,12 +5,12 @@ import { CartProvider } from 'react-use-cart';
 import { Provider } from 'react-redux';
 import NextNProgress from 'nextjs-progressbar';
 
-import store from '@/redux/store';
+import store, { wrapper } from '@/redux/store';
 import MainLayout from '@/components/layout/MainLayout';
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
+    <Provider store={store()}>
       <CartProvider>
         <MainLayout>
           <NextNProgress
@@ -24,3 +24,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </Provider>
   );
 }
+
+export default wrapper.withRedux(App);
