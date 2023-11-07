@@ -1,7 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { createWrapper } from 'next-redux-wrapper';
+import { configureStore } from "@reduxjs/toolkit";
+import { createWrapper } from "next-redux-wrapper";
 
-import { rootApi } from './api/rootApi';
+import { rootApi } from "./api/rootApi";
 
 const store = () =>
   configureStore({

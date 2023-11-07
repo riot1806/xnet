@@ -54,7 +54,7 @@ img {
   background: #11111f;
 }
 
-.loading{
+.loading {
   text-align: center;
   font-size: 32px;
   color: #11111f;
@@ -62,11 +62,10 @@ img {
 }
 
 @media all and (max-width: 600px) {
-  .loading{
+  .loading {
     text-align: center;
     font-size: 24px;
     color: #11111f;
     padding: 100px 0;
   }
 }
-

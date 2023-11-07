@@ -1,10 +1,10 @@
-import s from '../Categories/styles.module.scss';
+import s from "../Categories/styles.module.scss";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import { useGetCategoriesQuery } from '@/redux/api/categoryApi';
-import { Category } from '@/types';
-import Loading from '../Loading';
+import { useGetCategoriesQuery } from "@/redux/api/categoryApi";
+import { Category } from "@/types";
+import Loading from "../Loading";
 
 const Categories = () => {
   const { data: categories, isLoading } = useGetCategoriesQuery(null);
@@ -41,7 +41,7 @@ const Categories = () => {
                       ))}
                     </div>
                   </div>
-                )
+                ),
             )}
           </div>
         </div>

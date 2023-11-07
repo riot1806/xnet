@@ -35,13 +35,12 @@
 .new_prod_btn {
   width: 80px !important;
   height: 25px !important;
-  background-color: #21DF07 !important;
+  background-color: #21df07 !important;
   color: #fff !important;
-  border: 2px solid #21DF07 !important;
+  border: 2px solid #21df07 !important;
   border-radius: 6px;
   cursor: pointer;
 }
-
 
 .more_btn {
   display: flex;
@@ -257,22 +256,21 @@
   .new_prod_btn {
     width: 70px !important;
     height: 20px !important;
-    background-color: #21DF07 !important;
+    background-color: #21df07 !important;
     color: #fff !important;
-    border: 2px solid #21DF07 !important;
+    border: 2px solid #21df07 !important;
     border-radius: 6px;
   }
-  .page_routes{
+  .page_routes {
     display: flex;
     gap: 10px;
     align-items: center;
     padding-bottom: 30px;
     color: #838384;
-    a:hover{
+    a:hover {
       color: #2182f0;
       font-weight: 400;
     }
-    
   }
 }
 
@@ -331,7 +329,7 @@
     margin-top: 15px !important;
   }
 }
-.page_routes{
+.page_routes {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -339,9 +337,8 @@
   padding-bottom: 30px;
   color: #838384;
   font-size: 14px;
-  a:hover{
+  a:hover {
     color: #2182f0;
     font-weight: 400;
   }
-  
 }

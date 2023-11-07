@@ -1,11 +1,11 @@
-import { useGetProductsQuery } from '@/redux/api/productApi';
-import Loading from '../Loading';
-import s from '../NewProducts/styles.module.scss';
-import Slider from 'react-slick';
-import { Product } from '@/types';
-import Image from '../../../node_modules/next/image';
-import Link from '../../../node_modules/next/link';
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
+import { useGetProductsQuery } from "@/redux/api/productApi";
+import Loading from "../Loading";
+import s from "../NewProducts/styles.module.scss";
+import Slider from "react-slick";
+import { Product } from "@/types";
+import Image from "../../../node_modules/next/image";
+import Link from "../../../node_modules/next/link";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 const NewProducts = () => {
   const { data: products, isLoading } = useGetProductsQuery(null);

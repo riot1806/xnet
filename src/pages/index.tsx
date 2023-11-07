@@ -31,7 +31,7 @@ export default function Home() {
   const { data: banners, isLoading } = useGetBannersQuery(null);
 
   const isCatalogBanner = banners?.filter(
-    (el) => el?.is_catalog_banner === false
+    (el) => el?.is_catalog_banner === false,
   );
 
   if (isLoading) return <Loading />;

@@ -21,7 +21,7 @@ type SingleProductProps = {
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
     const { data, isLoading } = await store.dispatch(
-      getProducts.initiate(null)
+      getProducts.initiate(null),
     );
 
     await Promise.all(store.dispatch(getRunningQueriesThunk()));
@@ -32,7 +32,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
         isLoading,
       },
     };
-  }
+  },
 );
 
 const SingleProduct: FC<SingleProductProps> = ({ products, isLoading }) => {
@@ -52,6 +52,8 @@ const SingleProduct: FC<SingleProductProps> = ({ products, isLoading }) => {
         <title>X-NET | {queryFind?.name}</title>
         <meta name="description" content={queryFind?.description} />
         <meta property="og:image" content={queryFind?.image} />
+        <meta property="og:title" content={queryFind?.name} />
+        <meta property="og:description" content={queryFind?.description} />
       </Head>
       <div className={s.single_product_page}>
         <div className={s.container}>

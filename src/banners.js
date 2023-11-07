@@ -16,11 +16,11 @@ export const banners = [
     url: "https://itmag.uz/wp-content/uploads/2018/02/903-kh-340-px-2.jpg",
   },
   {
-    id:5,
-    url:"/test1.jpg"
+    id: 5,
+    url: "/test1.jpg",
   },
   {
-    id:6,
-    url:"/test2.jpg"
-  }
+    id: 6,
+    url: "/test2.jpg",
+  },
 ];

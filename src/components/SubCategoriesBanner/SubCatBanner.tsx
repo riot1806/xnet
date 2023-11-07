@@ -1,12 +1,12 @@
-import s from '../SubCategoriesBanner/styles.module.scss';
+import s from "../SubCategoriesBanner/styles.module.scss";
 
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Link from "next/link";
 
-import { useGetCategoriesQuery } from '@/redux/api/categoryApi';
-import { Category, SubCategory } from '@/types';
-import Loading from '../Loading';
+import { useGetCategoriesQuery } from "@/redux/api/categoryApi";
+import { Category, SubCategory } from "@/types";
+import Loading from "../Loading";
 
 const SubCatBanner = () => {
   const { data: category, isLoading } = useGetCategoriesQuery(null);
@@ -31,9 +31,9 @@ const SubCatBanner = () => {
                 key={el?.id}
               >
                 {el?.image === null ? (
-                  <Image fill src='/sub_cat.webp' alt='' />
+                  <Image fill src="/sub_cat.webp" alt="" />
                 ) : (
-                  <Image fill src={el?.image} alt='' />
+                  <Image fill src={el?.image} alt="" />
                 )}
                 <p>{el?.name}</p>
               </Link>

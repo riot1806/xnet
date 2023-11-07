@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import s from "../Filters/styles.module.scss";
 
 import { CgMenuGridO } from "react-icons/cg";
-import {GiComputerFan} from 'react-icons/gi'
+import { GiComputerFan } from "react-icons/gi";
 import { VscServerProcess } from "react-icons/vsc";
 import { useRouter } from "next/router";
 import Accordion from "@mui/material/Accordion";
@@ -82,7 +82,7 @@ const Filters = () => {
                         <VscServerProcess />
                         <h4>{el?.name}</h4>
                       </Link>
-                    )
+                    ),
                 )}
               </AccordionDetails>
             </Accordion>

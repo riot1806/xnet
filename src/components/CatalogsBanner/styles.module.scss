@@ -1,25 +1,24 @@
 .container {
-    max-width: 1280px;
-    width: 95%;
-    margin: 0 auto;
-  }
+  max-width: 1280px;
+  width: 95%;
+  margin: 0 auto;
+}
 
-  .catalogs_banner{
-    img{
-      border-radius: 10px !important;
-      display: block;
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      cursor: grab;
+.catalogs_banner {
+  img {
+    border-radius: 10px !important;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    cursor: grab;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  .catalogs_banner {
+    img {
+      height: auto !important;
     }
   }
-
-
-  @media all and (max-width: 1199px) {
-    .catalogs_banner{
-      img{
-        height: auto !important;
-      }
-    }
-  }
+}

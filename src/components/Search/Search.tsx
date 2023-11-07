@@ -1,41 +1,41 @@
-import { useEffect, useState } from 'react';
-import s from '../Search/styles.module.scss';
-import 'react-modern-drawer/dist/index.css';
+import { useEffect, useState } from "react";
+import s from "../Search/styles.module.scss";
+import "react-modern-drawer/dist/index.css";
 
-import { useRouter } from 'next/router';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { BsArrowLeft } from 'react-icons/bs';
-import Drawer from 'react-modern-drawer';
-import Link from 'next/link';
+import { useRouter } from "next/router";
+import { AiOutlineSearch } from "react-icons/ai";
+import { BsArrowLeft } from "react-icons/bs";
+import Drawer from "react-modern-drawer";
+import Link from "next/link";
 
-import { useGetProductsQuery } from '@/redux/api/productApi';
-import { Product } from '@/types';
+import { useGetProductsQuery } from "@/redux/api/productApi";
+import { Product } from "@/types";
 
 const Search = () => {
   const { data: products } = useGetProductsQuery(null);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [searchMob, setSearchMob] = useState('');
+  const [searchMob, setSearchMob] = useState("");
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
-    setSearchMob('');
+    setSearchMob("");
   };
 
   useEffect(() => {
     setIsOpen(false);
   }, [router]);
 
-  const productSearch = products?.filter((el:Product) => {
+  const productSearch = products?.filter((el: Product) => {
     return el?.name.toLowerCase().includes(searchMob.toLowerCase());
   });
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflowY = 'hidden';
+      document.body.style.overflowY = "hidden";
     }
 
     if (!isOpen) {
-      document.body.style.overflowY = 'scroll';
+      document.body.style.overflowY = "scroll";
     }
   }, []);
 
@@ -46,9 +46,9 @@ const Search = () => {
       <Drawer
         open={isOpen}
         onClose={toggleDrawer}
-        direction='right'
-        className='bla bla bla'
-        size={'100%'}
+        direction="right"
+        className="bla bla bla"
+        size={"100%"}
       >
         <div className={s.search_comp}>
           <div className={s.search_comp_labels}>
@@ -62,26 +62,26 @@ const Search = () => {
             <input
               value={searchMob}
               onChange={(e) => setSearchMob(e.target.value)}
-              type='text'
-              placeholder='Название товара...'
+              type="text"
+              placeholder="Название товара..."
             />
           </div>
           <div
-            style={{ display: searchMob.length ? 'block' : 'none' }}
+            style={{ display: searchMob.length ? "block" : "none" }}
             className={s.filters_result_box}
           >
             <ul>
               {productSearch?.length ? (
-                productSearch?.map((el:Product) => {
+                productSearch?.map((el: Product) => {
                   return (
                     <Link href={`/tovar/${el?.id}`} key={el?.id}>
-                      <img src={el?.image} alt='' />
+                      <img src={el?.image} alt="" />
                       {el?.name.length <= 58 ? (
                         <p>{el?.name}</p>
                       ) : (
                         <p>
                           {el?.name.slice(0, 58)}
-                          {'...'}
+                          {"..."}
                         </p>
                       )}
                       <p className={s.filters_result_box_price}>
@@ -91,10 +91,10 @@ const Search = () => {
                   );
                 })
               ) : (
-               <>
-               <br />
-                <b>Не найдено</b>
-               </>
+                <>
+                  <br />
+                  <b>Не найдено</b>
+                </>
               )}
             </ul>
           </div>
