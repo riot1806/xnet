@@ -1,5 +1,4 @@
-"use client";
-import React, { FC, useEffect } from "react";
+import { useEffect, useState } from "react";
 import s from "./styles.module.scss";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,10 +12,10 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { BiLogoTelegram } from "react-icons/bi";
 import { HiMail } from "react-icons/hi";
 
-const Nav: FC = () => {
+const Nav = () => {
   const router = useRouter();
   const { items } = useCart();
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
@@ -50,13 +49,13 @@ const Nav: FC = () => {
                       <Image
                         className={s.logo_mobile}
                         fill
-                        src="/x-logo.png"
+                        src="/x-logo.webp"
                         alt="Logo"
                       />
                     </Link>
                     <div className={s.mobile_routes}>
                       <Link href={"/"}>Главная Страница</Link>
-                      <Link href={"/vse-tovari"}>Товары</Link>
+                      <Link href={"/o-nas"}>О нас</Link>
                       <hr />
                       <span>
                         <a
@@ -102,14 +101,14 @@ const Nav: FC = () => {
                 </Drawer>
               </div>
               <Link href="/">
-                <Image className={s.logo} fill src="/x-logo.png" alt="Logo" />
+                <Image className={s.logo} fill src="/x-logo.webp" alt="Logo" />
               </Link>
               <div className={s.nav__center}>
                 <Link className={s.nav_center_link} href={"/"}>
                   Главная Страница
                 </Link>
-                <Link className={s.nav_center_link} href={"/vse-tovari"}>
-                  Товары
+                <Link className={s.nav_center_link} href={"/o-nas"}>
+                  О нас
                 </Link>
                 <span>
                   <a

@@ -1,8 +1,7 @@
-import React, { FC } from "react";
 import s from "../Target/target.module.scss";
 import Image from "../../../node_modules/next/image";
 
-const Target: FC = () => {
+const Target = () => {
   return (
     <>
       <div className={s.container}>
@@ -20,25 +19,25 @@ const Target: FC = () => {
             </p>
           </div>
           <div className={s.target_main_card}>
-            <Image fill src="/return.png" alt="Benefits" />
+            <Image fill src="/return.webp" alt="Benefits" />
             <p>
               Гарантированный <br /> возврат и обмен
             </p>
           </div>
           <div className={s.target_main_card}>
-            <Image fill src="/checklist.png" alt="Benefits" />
+            <Image fill src="/checklist.webp" alt="Benefits" />
             <p>
               Сертификаты на <br /> все товары
             </p>
           </div>
           <div className={s.target_main_card}>
-            <Image fill src="/agreement.png" alt="Benefits" />
+            <Image fill src="/agreement.webp" alt="Benefits" />
             <p>
               Сервисное <br /> обслуживание
             </p>
           </div>
           <div className={s.target_main_card}>
-            <Image fill src="/help.png" alt="Benefits" />
+            <Image fill src="/help.webp" alt="Benefits" />
             <p>
               Техническая <br /> поддержка <br /> 24/7
             </p>

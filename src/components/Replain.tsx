@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Head from "next/head";
-import Script from "../../node_modules/next/script";
 
 const ReplainChat = () => {
   useEffect(() => {

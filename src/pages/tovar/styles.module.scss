@@ -332,7 +332,9 @@
     }
   }
   .page_routes {
-    display: none !important;
+    // display: none !important;
+    font-size: 10px !important;
+    gap: 3px !important;
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import s from "../styles/new.module.scss";
 
 import Head from "next/head";

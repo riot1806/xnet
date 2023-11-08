@@ -1,7 +1,6 @@
-import React, { FC } from "react";
 import s from "../AboutUs/about.module.scss";
 
-const AboutUs: FC = () => {
+const AboutUs = () => {
   return (
     <>
       <div className={s.home_about}>

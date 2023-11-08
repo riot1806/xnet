@@ -1,16 +1,15 @@
-import React, { FC } from "react";
 import s from "../Footer/styles.module.scss";
 import Link from "next/link";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import Image from "next/image";
 
-const Footer: FC = () => {
+const Footer = () => {
   return (
     <>
       <footer className={s.footer}>
         <div className={s.container}>
           <div className={s.footer_main}>
-            <Image fill src="/x-logo.png" alt="Logo" />
+            <Image fill src="/x-logo.webp" alt="Logo" />
             <div className={s.item}>
               <h2>О компании</h2>
               <p className={s.footer_about_us}>
@@ -24,8 +23,8 @@ const Footer: FC = () => {
               <Link href={"/"}>
                 <p>Главная Страница</p>
               </Link>
-              <Link href={"/vse-tovari"}>
-                <p>Товары</p>
+              <Link href={"/o-nas"}>
+                <p>О нас</p>
               </Link>
             </div>
             <div className={s.item}>

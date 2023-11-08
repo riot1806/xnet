@@ -12,14 +12,12 @@ import AboutUs from "@/components/AboutUs/AboutUs";
 import Categories from "@/components/Categories/Categories";
 import Loading from "@/components/Loading";
 import NewProducts from "@/components/NewProducts/NewProducts";
-// import CatalogsBanner from "@/components/CatalogsBanner/CatalogsBanner";
 
 const settings = {
   dots: true,
-  // fade: true,
   arrows: false,
   infinite: true,
-  speed: 700,
+  speed: 400,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
@@ -57,7 +55,6 @@ export default function Home() {
       </div>
       <Categories />
       <NewProducts />
-      {/* <CatalogsBanner /> */}
       <AboutUs />
     </>
   );
