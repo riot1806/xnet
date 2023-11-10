@@ -60,7 +60,6 @@ const Nav = () => {
                       <span>
                         <a
                           className={s.tg_link}
-                          target="_blank"
                           href="https://t.me/xnecom"
                         >
                           <BiLogoTelegram />
@@ -70,7 +69,6 @@ const Nav = () => {
                       <span>
                         <a
                           className={s.tg_link}
-                          target="_blank"
                           href="mailto:info@x-net.uz"
                         >
                           <HiMail />
@@ -79,7 +77,6 @@ const Nav = () => {
                       </span>
                       <span>
                         <a
-                          target="_blank"
                           href="tel: +998971989889"
                           className={s.twink}
                         >
@@ -88,7 +85,6 @@ const Nav = () => {
                         </a>
                         <br />
                         <a
-                          target="_blank"
                           href="tel: +998971988998"
                           className={s.twink}
                         >
@@ -113,7 +109,6 @@ const Nav = () => {
                 <span>
                   <a
                     className={s.tg_link}
-                    target="_blank"
                     href="https://t.me/xnecom"
                   >
                     <BiLogoTelegram />
@@ -123,7 +118,6 @@ const Nav = () => {
                 <span>
                   <a
                     className={s.tg_link}
-                    target="_blank"
                     href="mailto: info@x-net.uz"
                   >
                     <HiMail />
@@ -132,7 +126,6 @@ const Nav = () => {
                 </span>
                 <span>
                   <a
-                    target="_blank"
                     href="tel: +998331989889"
                     className={s.twink}
                   >
@@ -140,7 +133,6 @@ const Nav = () => {
                     <p>+998 (33) 198-98-89 Хусан</p>
                   </a>
                   <a
-                    target="_blank"
                     href="tel: +998331898998"
                     className={s.twink}
                   >

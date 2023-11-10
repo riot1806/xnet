@@ -29,11 +29,11 @@ const Footer = () => {
             </div>
             <div className={s.item}>
               <h2>Контакты</h2>
-              <a target="_blank" href="tel: +998331989889" className={s.twink}>
+              <a href="tel: +998331989889" className={s.twink}>
                 <BsFillTelephoneFill className={s.twink_phone} />
                 <p>+998 (33) 198-98-89 Хусан</p>
               </a>
-              <a target="_blank" href="tel: +998331898998" className={s.twink}>
+              <a href="tel: +998331898998" className={s.twink}>
                 <BsFillTelephoneFill className={s.twink_phone} />
                 <p>+998 (33) 189-89-98 Хасан</p>
               </a>
@@ -52,7 +52,7 @@ const Footer = () => {
                 </svg>
                 <p>
                   г. Ташкент,
-                  <br /> Сергелинский район, <br /> ул. Учувчулар шахарчаси 80,
+                  <br /> Сергелинский район, <br /> ул. Учувчилар шахарчаси 80,
                 </p>
               </div>
             </div>
