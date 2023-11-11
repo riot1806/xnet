@@ -1,9 +1,13 @@
 import React from 'react'
 import s from '../styles/o-nas.module.scss'
+import Head from 'next/head'
 
 const AboutUs = () => {
   return (
     <>
+      <Head>
+        <title>X-NET | О нас</title>
+      </Head>
       <div className={s.o_nas}>
         <div className={s.container}>
           <br />
