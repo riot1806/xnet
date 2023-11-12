@@ -66,8 +66,8 @@ ${items
             <div className={s.empty_cart}>
               <Image src="/cart.webp" alt="ПУСТО" fill />
               <h2>В вашей корзине пока пусто</h2>
-              <Link href="/vse-tovari">
-                <button>Вернуться в меню</button>
+              <Link href="/">
+                <button>Назад</button>
               </Link>
             </div>
           </div>
